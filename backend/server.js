@@ -10,6 +10,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
+console.log("✓ Loading routes...");
+console.log("✓ Contact routes loaded:", typeof contactRoutes !== "undefined");
+
 // ═══════════════════════════════════════════════════
 // BUG 1 FIX: CORS with dynamic origin (no wildcard *)
 // ═══════════════════════════════════════════════════
@@ -51,6 +54,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // Routes
+console.log("✓ Mounting contact routes at /api...");
 app.use("/api", contactRoutes);
 
 // 404 handler
@@ -81,6 +85,9 @@ connectDB()
     app.listen(PORT, () => {
       console.log(`✓ Server running on port ${PORT}`);
       console.log(`✓ Backend URL: ${BACKEND_URL}`);
+      console.log("✓ Routes registered:");
+      console.log("  - GET  /api/health");
+      console.log("  - POST /api/contact");
     });
   })
   .catch((err) => {
@@ -89,6 +96,9 @@ connectDB()
     console.log("⚠️ Server starting without database connection...");
     app.listen(PORT, () => {
       console.log(`✓ Server running on port ${PORT}`);
-      console.log(`⚠️ Database operations will fail until MongoDB is connected`);
+      console.log("⚠️ Database operations will fail until MongoDB is connected");
+      console.log("✓ Routes registered:");
+      console.log("  - GET  /api/health");
+      console.log("  - POST /api/contact");
     });
   });
