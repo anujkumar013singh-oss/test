@@ -1,6 +1,6 @@
 import express from "express";
 import { sendEmail } from "../services/email.service.js";
-import { saveContact } from "../services/mongo.service.js";
+import { saveContact, disconnectDB } from "../services/mongo.service.js";
 
 const router = express.Router();
 
@@ -43,11 +43,30 @@ router.post("/contact", async (req, res) => {
     });
   } catch (error) {
     console.error("Error processing contact form:", error.message);
+    
+    // Check if it's a MongoDB connection error
+    if (error.message.includes("connect ECONNREFUSED") || 
+        error.message.includes("MongoNetworkError") ||
+        error.message.includes("server selection timeout")) {
+      console.error("⚠️ MongoDB connection failed. Email may still have been sent.");
+      return res.status(503).json({
+        error: "Service temporarily unavailable. Email sent but not saved to database.",
+        details: "Database connection failed. Please try again later.",
+      });
+    }
+    
     res.status(500).json({
       error: "Failed to process your message. Please try again later.",
       details: process.env.NODE_ENV === "development" ? error.message : undefined,
     });
   }
+});
+
+// Graceful shutdown handler
+process.on("SIGTERM", async () => {
+  console.log("SIGTERM received, shutting down gracefully...");
+  await disconnectDB();
+  process.exit(0);
 });
 
 export default router;

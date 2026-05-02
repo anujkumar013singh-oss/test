@@ -77,13 +77,18 @@ setInterval(() => {
 // Connect to MongoDB and start server
 connectDB()
   .then(() => {
+    console.log("✓ MongoDB connected successfully");
     app.listen(PORT, () => {
       console.log(`✓ Server running on port ${PORT}`);
       console.log(`✓ Backend URL: ${BACKEND_URL}`);
-      console.log(`✓ MongoDB connected`);
     });
   })
   .catch((err) => {
-    console.error("Failed to connect to MongoDB:", err);
-    process.exit(1);
+    console.error("⚠️ MongoDB connection failed, but starting server anyway:");
+    console.error(err.message);
+    console.log("⚠️ Server starting without database connection...");
+    app.listen(PORT, () => {
+      console.log(`✓ Server running on port ${PORT}`);
+      console.log(`⚠️ Database operations will fail until MongoDB is connected`);
+    });
   });
