@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6_hmNogiRhIAkAdfWU9q0wQb2WdEvswPCTHCd9U-giehtMTgKcmZq2NsQES-XYuxd/exec";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +13,7 @@ const Contact = () => {
   });
 
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -23,22 +24,33 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
+    setErrorMessage("");
 
     try {
-      // ✅ Send as URLSearchParams — no-cors mode drops JSON headers,
-      //    but form-encoded bodies are always forwarded correctly.
-      const body = new URLSearchParams(formData);
-
-      await fetch(APPS_SCRIPT_URL, {
+      // Send JSON to backend API
+      const response = await fetch(`${BACKEND_URL}/api/contact`, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString(),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send message");
+      }
 
       setStatus("success");
       setFormData({ firstName: "", lastName: "", email: "", subject: "", message: "" });
-    } catch {
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setErrorMessage(
+        error instanceof Error ? error.message : "Something went wrong. Please try again."
+      );
       setStatus("error");
     }
   };
@@ -162,7 +174,7 @@ const Contact = () => {
                 <p className="text-sm text-green-600 font-medium">✓ Message sent! I'll get back to you soon.</p>
               )}
               {status === "error" && (
-                <p className="text-sm text-red-500 font-medium">✗ Something went wrong. Please try again.</p>
+                <p className="text-sm text-red-500 font-medium">✗ {errorMessage || "Something went wrong. Please try again."}</p>
               )}
             </div>
 
