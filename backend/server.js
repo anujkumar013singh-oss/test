@@ -7,7 +7,7 @@ import contactRoutes from "./routes/contact.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
 console.log("✓ Loading routes...");
@@ -83,7 +83,7 @@ connectDB()
   .then(() => {
     console.log("✓ MongoDB connected successfully");
     if (process.env.PORT) {
-      console.log("✓ Using Render PORT:", process.env.PORT);
+      console.log("✓ Using PORT from environment:", process.env.PORT);
     }
     app.listen(PORT, () => {
       console.log(`✓ Server running on port ${PORT}`);
@@ -98,7 +98,7 @@ connectDB()
     console.error(err.message);
     console.log("⚠️ Server starting without database connection...");
     if (process.env.PORT) {
-      console.log("✓ Using Render PORT:", process.env.PORT);
+      console.log("✓ Using PORT from environment:", process.env.PORT);
     }
     app.listen(PORT, () => {
       console.log(`✓ Server running on port ${PORT}`);
