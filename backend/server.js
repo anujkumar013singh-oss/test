@@ -1,13 +1,23 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { connectDB } from "./services/mongo.service.js";
-import contactRoutes from "./routes/contact.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load env BEFORE any service imports
+dotenv.config({ path: path.join(__dirname, ".env") });
+
+// Dynamic imports after env is loaded
+const { connectDB } = await import("./services/mongo.service.js");
+const { default: contactRoutes } = await import("./routes/contact.js");
+console.log("✓ Environment loaded. MONGO_URI:", process.env.MONGO_URI ? "SET" : "NOT SET");
+console.log("✓ BREVO_API_KEY:", process.env.BREVO_API_KEY ? "SET" : "NOT SET");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3500;
 const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
 console.log("✓ Loading routes...");
