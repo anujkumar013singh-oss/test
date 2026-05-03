@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3500";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +27,6 @@ const Contact = () => {
     setErrorMessage("");
 
     try {
-      // Send JSON to backend API
       const response = await fetch(`${BACKEND_URL}/api/contact`, {
         method: "POST",
         headers: {
@@ -43,8 +42,6 @@ const Contact = () => {
 
       setStatus("success");
       setFormData({ firstName: "", lastName: "", email: "", subject: "", message: "" });
-      
-      // Reset success message after 5 seconds
       setTimeout(() => setStatus("idle"), 5000);
     } catch (error) {
       console.error("Contact form error:", error);
