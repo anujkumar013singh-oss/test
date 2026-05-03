@@ -102,3 +102,15 @@ connectDB()
       console.log("  - POST /api/contact");
     });
   });
+
+  const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://localhost:8080",
+  "http://localhost:8082",
+  /^https:\/\/.*\.vercel\.app$/,
+  /^https:\/\/.*\.netlify\.app$/,
+  "https://test-yu3u.onrender.com",
+  "https://solodeveloper.in",        // ← add this
+  "https://www.solodeveloper.in",    // ← add this
+];
