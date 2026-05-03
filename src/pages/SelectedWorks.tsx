@@ -6,38 +6,38 @@ import './ScrollStack.css';
 const projects = [
   {
     id: "001",
+    title: "Clive Christen",
+    stack: "React / Next.js / GSAP / Tailwind CSS / Figma / Git",
+    description: "Built a luxury perfume brand website with scroll-triggered animations and cinematic transitions. Designed a premium editorial experience where motion and typography communicated exclusivity. Solved performance and scroll-sync challenges to deliver a high-end, immersive product browsing experience.",
+    links: { live: "https://clive-christen.vercel.app/", code: "#" },
+    image: "https://cdn.pixabay.com/photo/2020/04/19/01/15/perfume-5061479_1280.jpg",
+    cta: "Live Project"
+  },
+  {
+    id: "002",
     title: "Lorix Technologies",
-    stack: "React JS / Tailwind CSS / Three JS / Next JS / Scroll Trigger",
-    description: "This website is designed for a service-based company, Lorix Technologies, focused on end-to-end digital product delivery and PMO consulting for SaaS, EdTech, and service platforms. I built it using modern frontend tools with a strong focus on kinetic typography, motion-driven UI, and scalable design systems.",
+    stack: "React / Next.js / GSAP / Three.js / Tailwind CSS / Vercel",
+    description: "Built a kinetic, motion-driven corporate website with continuous scroll animations and 3D visuals. Solved major performance challenges through animation layering and IntersectionObserver pausing. Pushed frontend skills into advanced animation architecture and performance budgeting.",
     links: { live: "https://lorix-technologies.vercel.app/", code: "#" },
     image: "https://ik.imagekit.io/yrpp2zi5o/lorix.png",
     cta: "Live Project"
   },
   {
-    id: "002",
-    title: "Wanderlust Travels",
-    stack: "HTML / CSS / JavaScript / GSAP / ScrollTrigger",
-    description: "This website is built to help travelers explore and plan trips with ease. I used HTML, CSS, JavaScript, GSAP, and ScrollTrigger to design smooth animations and interactive features.",
-    links: { live: "https://anujkumar013singh-oss.github.io/Wanderlust-Travels/", code: "#" },
-    image: "https://ik.imagekit.io/yrpp2zi5o/travels.png",
-    cta: "Live Project"
-  },
-  {
     id: "003",
-    title: "ShopEase E-commerce",
-    stack: "CSS 3 / GSAP / Node JS / Brand Design",
-    description: "This website is designed for online shopping, helping users browse and purchase products effortlessly. I developed it using HTML, CSS, and JavaScript to create a smooth, responsive interface.",
-    links: { live: "https://anujkumar013singh-oss.github.io/ShopEase/", code: "#" },
-    image: "https://ik.imagekit.io/yrpp2zi5o/shopEase.png",
+    title: "DigiLearners",
+    stack: "React / Node.js / Express / MongoDB / Brevo / Render",
+    description: "First freelance full-stack build — owned everything from design to deployment. Solved live CORS issues, email configuration, and database integration for a real paying client. Real accountability pushed quality higher than any personal project had before.",
+    links: { live: "https://digi-learner-omega.vercel.app/", code: "#" },
+    image: "https://t3.ftcdn.net/jpg/11/13/23/92/360_F_1113239204_4py0u7gyARiksbcwVJMLXwH3ZxUzVMTA.jpg",
     cta: "Live Project"
   },
   {
     id: "004",
-    title: "Animated Portfolio",
-    stack: "Professional / Showcase / Motion Graphics / ScrollTrigger / Vanilla JS",
-    description: "This is a personal portfolio website designed to present a developer’s skills in frontend development and UI/UX design through real interactive implementation. It showcases responsive layouts, clean interface design, and motion-driven user experiences built with modern web technologies.",
-    links: { live: "https://thecode109.github.io/Portfolio/", code: "#" },
-    image: "https://ik.imagekit.io/yrpp2zi5o/Gemini_Generated_Image_rxqde6rxqde6rxqd%20(1).png",
+    title: "Volera Fashion Brand",
+    stack: "React / Tailwind CSS / GSAP / Framer Motion / ImageKit",
+    description: "Built a seven-page fashion brand website with editorial browsing experience. Solved image performance with ImageKit CDN and maintained brand consistency through a disciplined design system. Developed brand-thinking and fashion-specific UX design skills.",
+    links: { live: "https://velora-a-fashion-clothes-brand.vercel.app/", code: "#" },
+    image: "https://t4.ftcdn.net/jpg/08/52/41/57/360_F_852415708_VB64Dcb5a2d6RAakoIH7z8noJ6M9OZAQ.jpg",
     cta: "Live Project"
   },
 ];

@@ -53,7 +53,7 @@ const Footer = () => {
             Anuj
           </p>
           <p className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed text-white/60">
-            Full Stack Engineer
+            Full Stack Developer
           </p>
           <p className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed text-white/60">
             Noida
