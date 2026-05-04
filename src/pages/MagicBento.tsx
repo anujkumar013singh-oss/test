@@ -26,21 +26,21 @@ const MagicBento = () => {
             value={2}
             suffix="+"
             label="Years Experience"
-            description="Building software with architectural intent and predictable system behavior."
+            description="Web developer building scalable, high-performance applications under real-world constraints."
           />
 
           <SwissItem
             value={500}
             suffix="+"
-            label="Engineering Hours"
-            description="Engineering judgment refined through real-world constraints."
+            label="Development Hours"
+            description="Driven by consistent practice and strong full-stack development skills."
           />
 
           <SwissItem
             value={1}
             suffix="st"
             label="Systems First"
-            description="Architecture precedes interface. Structure defines outcome."
+            description="Design architecture, APIs, and data models before implementing frontend interfaces."
           />
 
         </div>

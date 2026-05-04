@@ -226,7 +226,7 @@ const Index = () => {
           >
             <div className="w-12 h-[2px] bg-white mb-6 md:hidden" />
             <p className="font-sans text-xs md:text-sm font-medium text-white leading-relaxed tracking-wide uppercase text-left">
-              Building robust software, automating the complex and focused on transforming static systems into intelligent ones.
+             Full-Stack Developer working across frontend, backend, databases, and Git to build scalable web applications.
             </p>
           </motion.div>
         </div>

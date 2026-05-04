@@ -25,18 +25,10 @@ const skillCategories = [
       { name: "Next.js", url: "https://cdn.simpleicons.org/nextdotjs/ffffff" },
       { name: "Node.js", url: "https://cdn.simpleicons.org/nodedotjs/5FA04E" },
       { name: "Express.js", url: "https://cdn.simpleicons.org/express/ffffff" },
-      { name: "Nest.js", url: "https://cdn.simpleicons.org/nestjs/E0234E" },
       { name: "Prisma", url: "https://cdn.simpleicons.org/prisma/ffffff" },
       { name: "MongoDB", url: "https://cdn.simpleicons.org/mongodb/47A248" },
-      { name: "MongoDB Atlas", url: "https://images.contentstack.io/v3/assets/blt7151619cb9560896/blt4b8f5d88e7e5fcb7/6570d7ff19f33769508d1cf6/General_TECHNOLOGY_Database_Spot_BS_Mist.svg" },
-      { name: "MongoDB Compass", url: "https://img.utdstc.com/icon/3d8/cb3/3d8cb3d29621d88b4d362a12762f4c08af28e5ce781a54d9683638502ebae865:200" },
-      { name: "Postman", url: "https://cdn.simpleicons.org/postman/FF6C37" },
-      { name: "Railway", url: "https://cdn.simpleicons.org/railway/ffffff" },
-      { name: "PostgreSQL", url: "https://cdn.simpleicons.org/postgresql/4169E1" },
       { name: "Git", url: "https://cdn.simpleicons.org/git/F05032" },
       { name: "Render", url: "https://cdn.simpleicons.org/render/46E3B7" },
-      { name: "Supabase", url: "https://cdn.simpleicons.org/supabase/3ECF8E" },
-      { name: "Firebase", url: "https://cdn.simpleicons.org/firebase/DD2C00" }
     ]
   },
   {
@@ -50,9 +42,6 @@ const skillCategories = [
       { name: "Windsurf", url: "https://cdn.simpleicons.org/windsurf/2D9EFF" },
       { name: "Claude", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Claude_AI_symbol.svg/960px-Claude_AI_symbol.svg.png" },
       { name: "Codex", url: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/codex-color.png" },
-      { name: "Reddit", url: "https://cdn.simpleicons.org/reddit/FF4500" },
-      { name: "Supabase", url: "https://cdn.simpleicons.org/supabase/3ECF8E" },
-      { name: "Firebase", url: "https://cdn.simpleicons.org/firebase/DD2C00" }
     ]
   }
 ];

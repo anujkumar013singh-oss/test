@@ -15,7 +15,7 @@ interface SocialItem {
 const navItems: NavItem[] = [
   { label: "About", href: "#about", number: "01" },
   { label: "Work", href: "#work", number: "02" },
-  { label: "Philosophy", href: "#philosophy", number: "03" },
+  { label: "Skills", href: "#philosophy", number: "03" },
   { label: "Contact", href: "#contact", number: "04" },
 ];
 
