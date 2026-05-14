@@ -3,14 +3,15 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import { connectDB } from "./services/mongo.service.js";
+import contactRoutes from "./routes/contact.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config({ path: path.join(__dirname, ".env") });
+// Load environment variables
+dotenv.config();
 
-const { connectDB } = await import("./services/mongo.service.js");
-const { default: contactRoutes } = await import("./routes/contact.js");
 console.log("✓ Environment loaded. MONGO_URI:", process.env.MONGO_URI ? "SET" : "NOT SET");
 console.log("✓ BREVO_API_KEY:", process.env.BREVO_API_KEY ? "SET" : "NOT SET");
 
@@ -19,30 +20,41 @@ const PORT = process.env.PORT || 3500;
 const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
 console.log("✓ Loading routes...");
-console.log("✓ Contact routes loaded:", typeof contactRoutes !== "undefined");
 
 app.use(
   cors({
     origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl)
       if (!origin) return callback(null, true);
+      
+      // Allow localhost
       if (origin.startsWith("http://localhost:")) return callback(null, true);
 
-      const allowed = [
-        /^https:\/\/.*\.vercel\.app$/,
-        /^https:\/\/.*\.netlify\.app$/,
-        "https://test-yu3u.onrender.com",
+      const allowedOrigins = [
+        "https://anujsingh-developer.vercel.app",
+        "https://solodeveloper.in",
+        "https://www.solodeveloper.in",
+        "https://test-yu3u.onrender.com"
       ];
 
-      const isAllowed = allowed.some((o) =>
-        typeof o === "string" ? o === origin : o.test(origin)
-      );
+      const allowedPatterns = [
+        /^https:\/\/.*\.vercel\.app$/,
+        /^https:\/\/.*\.netlify\.app$/
+      ];
 
-      if (isAllowed) return callback(null, true);
+      const isAllowed = allowedOrigins.includes(origin) || 
+                        allowedPatterns.some(pattern => pattern.test(origin));
 
-      console.warn(`CORS blocked origin: ${origin}`);
-      return callback(null, false);
+      if (isAllowed) {
+        return callback(null, true);
+      } else {
+        console.warn(`[CORS Blocked]: ${origin}`);
+        return callback(null, false); // Return false instead of Error for cleaner response
+      }
     },
     credentials: true,
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 
