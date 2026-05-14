@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load environment variables
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, ".env") });
 
 console.log("✓ Environment loaded. MONGO_URI:", process.env.MONGO_URI ? "SET" : "NOT SET");
 console.log("✓ BREVO_API_KEY:", process.env.BREVO_API_KEY ? "SET" : "NOT SET");
@@ -19,44 +19,39 @@ const app = express();
 const PORT = process.env.PORT || 3500;
 const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
-console.log("✓ Loading routes...");
+// 1. Robust CORS handling
+const allowedOrigins = [
+  "https://anujsingh-developer.vercel.app",
+  "https://solodeveloper.in",
+  "https://www.solodeveloper.in",
+  "https://test-yu3u.onrender.com",
+  "http://localhost:5173",
+  "http://localhost:3000"
+];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps or curl)
-      if (!origin) return callback(null, true);
-      
-      // Allow localhost
-      if (origin.startsWith("http://localhost:")) return callback(null, true);
+app.use(cors({
+  origin: function(origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    const isAllowed = allowedOrigins.includes(origin) || 
+                      /^https:\/\/.*\.vercel\.app$/.test(origin) ||
+                      /^https:\/\/.*\.netlify\.app$/.test(origin);
+    
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      console.warn(`[CORS Blocked]: ${origin}`);
+      callback(null, false);
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
+}));
 
-      const allowedOrigins = [
-        "https://anujsingh-developer.vercel.app",
-        "https://solodeveloper.in",
-        "https://www.solodeveloper.in",
-        "https://test-yu3u.onrender.com"
-      ];
-
-      const allowedPatterns = [
-        /^https:\/\/.*\.vercel\.app$/,
-        /^https:\/\/.*\.netlify\.app$/
-      ];
-
-      const isAllowed = allowedOrigins.includes(origin) || 
-                        allowedPatterns.some(pattern => pattern.test(origin));
-
-      if (isAllowed) {
-        return callback(null, true);
-      } else {
-        console.warn(`[CORS Blocked]: ${origin}`);
-        return callback(null, false); // Return false instead of Error for cleaner response
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-  })
-);
+// Explicitly handle OPTIONS preflight for all routes
+app.options('*', cors());
 
 app.use(express.json());
 
@@ -80,6 +75,20 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Internal server error" });
 });
 
+// Start server IMMEDIATELY to prevent Render 503 timeout
+app.listen(PORT, () => {
+  console.log(`✓ Server running on port ${PORT}`);
+  console.log(`✓ Backend URL: ${BACKEND_URL}`);
+  
+  // Connect to DB in the background
+  connectDB()
+    .then(() => console.log("✓ MongoDB connected successfully"))
+    .catch((err) => {
+      console.error("⚠️ MongoDB connection failed:");
+      console.error(err.message);
+    });
+});
+
 setInterval(() => {
   fetch(`${BACKEND_URL}/api/health`)
     .then((res) => res.json())
@@ -87,42 +96,8 @@ setInterval(() => {
     .catch((err) => console.log("Self-ping failed:", err.message));
 }, 14 * 60 * 1000);
 
-connectDB()
-  .then(() => {
-    console.log("✓ MongoDB connected successfully");
-    if (process.env.PORT) {
-      console.log("✓ Using PORT from environment:", process.env.PORT);
-    }
-    app.listen(PORT, () => {
-      console.log(`✓ Server running on port ${PORT}`);
-      console.log(`✓ Backend URL: ${BACKEND_URL}`);
-      console.log("✓ Routes registered:");
-      console.log("  - GET  /");
-      console.log("  - GET  /api/health");
-      console.log("  - POST /api/contact");
-    });
-  })
-  .catch((err) => {
-    console.error("⚠️ MongoDB connection failed, but starting server anyway:");
-    console.error(err.message);
-    app.listen(PORT, () => {
-      console.log(`✓ Server running on port ${PORT}`);
-      console.log("⚠️ Database operations will fail until MongoDB is connected");
-      console.log("✓ Routes registered:");
-      console.log("  - GET  /");
-      console.log("  - GET  /api/health");
-      console.log("  - POST /api/contact");
-    });
-  });
-
-  const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:3000",
-  "http://localhost:8080",
-  "http://localhost:8082",
-  /^https:\/\/.*\.vercel\.app$/,
-  /^https:\/\/.*\.netlify\.app$/,
-  "https://test-yu3u.onrender.com",
-  "https://solodeveloper.in",        // ← add this
-  "https://www.solodeveloper.in",    // ← add this
-];
+// Graceful shutdown handling
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received. Shutting down...");
+  process.exit(0);
+});
