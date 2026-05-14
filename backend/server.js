@@ -3,41 +3,51 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
-import { connectDB } from "./services/mongo.service.js";
-import contactRoutes from "./routes/contact.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load environment variables
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, ".env") });
+
+const { connectDB } = await import("./services/mongo.service.js");
+const { default: contactRoutes } = await import("./routes/contact.js");
+console.log("✓ Environment loaded. MONGO_URI:", process.env.MONGO_URI ? "SET" : "NOT SET");
+console.log("✓ BREVO_API_KEY:", process.env.BREVO_API_KEY ? "SET" : "NOT SET");
 
 const app = express();
 const PORT = process.env.PORT || 3500;
 const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
-// 1. GLOBAL CORS - Apply this FIRST before any other middleware or routes
-app.use(cors({
-  origin: true, // Echoes back the requesting origin (Safe for credentials)
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"],
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-}));
+console.log("✓ Loading routes...");
+console.log("✓ Contact routes loaded:", typeof contactRoutes !== "undefined");
 
-// Handle preflight for ALL routes explicitly
-app.options('*', cors());
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (origin.startsWith("http://localhost:")) return callback(null, true);
+
+      const allowed = [
+        /^https:\/\/.*\.vercel\.app$/,
+        /^https:\/\/.*\.netlify\.app$/,
+        "https://test-yu3u.onrender.com",
+      ];
+
+      const isAllowed = allowed.some((o) =>
+        typeof o === "string" ? o === origin : o.test(origin)
+      );
+
+      if (isAllowed) return callback(null, true);
+
+      console.warn(`CORS blocked origin: ${origin}`);
+      return callback(null, false);
+    },
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
-// Logging for debugging (will show in Render logs)
-app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path} | Origin: ${req.headers.origin || 'No Origin'}`);
-  next();
-});
-
-// Health check and root routes
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Portfolio backend is live" });
 });
@@ -46,44 +56,61 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "alive", timestamp: new Date().toISOString() });
 });
 
-// API Routes
+console.log("✓ Mounting contact routes at /api...");
 app.use("/api", contactRoutes);
 
-// Error handling
 app.use((req, res) => {
   res.status(404).json({ error: "Route not found" });
 });
 
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
-  // Ensure CORS headers are even on error responses
-  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
   res.status(500).json({ error: "Internal server error" });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`✓ Server running on port ${PORT}`);
-  console.log(`✓ Backend URL: ${BACKEND_URL}`);
-  
-  // Connect to DB in the background
-  connectDB()
-    .then(() => console.log("✓ MongoDB connected successfully"))
-    .catch((err) => {
-      console.error("⚠️ MongoDB connection failed:", err.message);
-    });
-});
-
-// Self-ping to keep Render instance alive (every 10 minutes)
 setInterval(() => {
   fetch(`${BACKEND_URL}/api/health`)
     .then((res) => res.json())
     .then((data) => console.log("Self-ping successful:", data.status))
     .catch((err) => console.log("Self-ping failed:", err.message));
-}, 10 * 60 * 1000);
+}, 14 * 60 * 1000);
 
-// Graceful shutdown
-process.on("SIGTERM", () => {
-  console.log("SIGTERM received. Shutting down...");
-  process.exit(0);
-});
+connectDB()
+  .then(() => {
+    console.log("✓ MongoDB connected successfully");
+    if (process.env.PORT) {
+      console.log("✓ Using PORT from environment:", process.env.PORT);
+    }
+    app.listen(PORT, () => {
+      console.log(`✓ Server running on port ${PORT}`);
+      console.log(`✓ Backend URL: ${BACKEND_URL}`);
+      console.log("✓ Routes registered:");
+      console.log("  - GET  /");
+      console.log("  - GET  /api/health");
+      console.log("  - POST /api/contact");
+    });
+  })
+  .catch((err) => {
+    console.error("⚠️ MongoDB connection failed, but starting server anyway:");
+    console.error(err.message);
+    app.listen(PORT, () => {
+      console.log(`✓ Server running on port ${PORT}`);
+      console.log("⚠️ Database operations will fail until MongoDB is connected");
+      console.log("✓ Routes registered:");
+      console.log("  - GET  /");
+      console.log("  - GET  /api/health");
+      console.log("  - POST /api/contact");
+    });
+  });
+
+  const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://localhost:8080",
+  "http://localhost:8082",
+  /^https:\/\/.*\.vercel\.app$/,
+  /^https:\/\/.*\.netlify\.app$/,
+  "https://test-yu3u.onrender.com",
+  "https://solodeveloper.in",        // ← add this
+  "https://www.solodeveloper.in",    // ← add this
+];

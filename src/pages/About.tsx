@@ -92,6 +92,9 @@ const About = () => {
                 <p className="font-sans text-xl md:text-2xl lg:text-3xl font-normal text-black/70 leading-tight tracking-tight">
                   Frontend Developer Intern
                 </p>
+                <p className="font-sans text-xl md:text-2xl lg:text-3xl font-normal text-black/70 leading-tight tracking-tight">
+                  May 2026 – Present
+                </p>
               </div>
             </div>
           </motion.div>

@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
   const textScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const textOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  const containerVariants: Variants = {
+  const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -24,12 +24,12 @@ const Footer = () => {
     },
   };
 
-  const itemVariants: Variants = {
+  const itemVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
@@ -67,7 +67,7 @@ const Footer = () => {
           </h3>
           <div className="flex flex-col gap-2">
             <a
-              href="mailto:alonesurvivor03@gmail.com"
+              href="mailto:alonesurvivor03@gamil.com"
               className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
             >
               Email ↗
