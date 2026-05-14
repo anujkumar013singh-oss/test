@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3500";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://test-ochre-chi-82.vercel.app";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,13 +27,19 @@ const Contact = () => {
     setErrorMessage("");
 
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 60000); // 60s timeout
+
       const response = await fetch(`${BACKEND_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeout);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -45,9 +51,13 @@ const Contact = () => {
       setTimeout(() => setStatus("idle"), 5000);
     } catch (error) {
       console.error("Contact form error:", error);
-      setErrorMessage(
-        error instanceof Error ? error.message : "Something went wrong. Please try again."
-      );
+      if (error instanceof Error && error.name === "AbortError") {
+        setErrorMessage("Request timed out. Please try again.");
+      } else {
+        setErrorMessage(
+          error instanceof Error ? error.message : "Something went wrong. Please try again."
+        );
+      }
       setStatus("error");
     }
   };
@@ -167,6 +177,9 @@ const Contact = () => {
                 <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
               </button>
 
+              {status === "sending" && (
+                <p className="text-sm text-black/50 font-medium">⏳ Sending your message...</p>
+              )}
               {status === "success" && (
                 <p className="text-sm text-green-600 font-medium">✓ Message sent! I'll get back to you soon.</p>
               )}
