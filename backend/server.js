@@ -12,48 +12,30 @@ const __dirname = path.dirname(__filename);
 // Load environment variables
 dotenv.config();
 
-console.log("✓ Environment loaded. MONGO_URI:", process.env.MONGO_URI ? "SET" : "NOT SET");
-console.log("✓ BREVO_API_KEY:", process.env.BREVO_API_KEY ? "SET" : "NOT SET");
-
 const app = express();
 const PORT = process.env.PORT || 3500;
 const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
-// 1. Robust CORS configuration
-const allowedOrigins = [
-  "https://anujsingh-developer.vercel.app",
-  "https://solodeveloper.in",
-  "https://www.solodeveloper.in",
-  "https://test-yu3u.onrender.com",
-  "http://localhost:5173",
-  "http://localhost:3000"
-];
-
+// 1. GLOBAL CORS - Apply this FIRST before any other middleware or routes
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-    
-    const isAllowed = allowedOrigins.includes(origin) || 
-                      /^https:\/\/.*\.vercel\.app$/.test(origin) ||
-                      /^https:\/\/.*\.netlify\.app$/.test(origin);
-    
-    if (isAllowed) {
-      callback(null, true);
-    } else {
-      console.warn(`[CORS Blocked]: ${origin}`);
-      callback(null, false);
-    }
-  },
+  origin: true, // Echoes back the requesting origin (Safe for credentials)
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 }));
 
-// Explicitly handle OPTIONS preflight for all routes
+// Handle preflight for ALL routes explicitly
 app.options('*', cors());
 
 app.use(express.json());
+
+// Logging for debugging (will show in Render logs)
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path} | Origin: ${req.headers.origin || 'No Origin'}`);
+  next();
+});
 
 // Health check and root routes
 app.get("/", (req, res) => {
@@ -65,7 +47,6 @@ app.get("/api/health", (req, res) => {
 });
 
 // API Routes
-console.log("✓ Mounting contact routes at /api...");
 app.use("/api", contactRoutes);
 
 // Error handling
@@ -75,6 +56,8 @@ app.use((req, res) => {
 
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
+  // Ensure CORS headers are even on error responses
+  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
   res.status(500).json({ error: "Internal server error" });
 });
 
@@ -83,7 +66,7 @@ app.listen(PORT, () => {
   console.log(`✓ Server running on port ${PORT}`);
   console.log(`✓ Backend URL: ${BACKEND_URL}`);
   
-  // Connect to DB in the background to prevent startup timeouts
+  // Connect to DB in the background
   connectDB()
     .then(() => console.log("✓ MongoDB connected successfully"))
     .catch((err) => {
@@ -91,13 +74,13 @@ app.listen(PORT, () => {
     });
 });
 
-// Self-ping to keep Render instance alive
+// Self-ping to keep Render instance alive (every 10 minutes)
 setInterval(() => {
   fetch(`${BACKEND_URL}/api/health`)
     .then((res) => res.json())
     .then((data) => console.log("Self-ping successful:", data.status))
     .catch((err) => console.log("Self-ping failed:", err.message));
-}, 14 * 60 * 1000);
+}, 10 * 60 * 1000);
 
 // Graceful shutdown
 process.on("SIGTERM", () => {
