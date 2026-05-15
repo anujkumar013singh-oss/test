@@ -1,87 +1,61 @@
 import mongoose from "mongoose";
 
-// ═══════════════════════════════════════════════════
-// MongoDB Connection and Contact Schema
-// ═══════════════════════════════════════════════════
-
 const MONGO_URI = process.env.MONGO_URI;
 
-// Define Contact Schema
+// Contact Schema
 const contactSchema = new mongoose.Schema(
   {
-    firstName: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    lastName: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      lowercase: true,
-      trim: true,
-    },
-    subject: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    message: {
-      type: String,
-      required: true,
-    },
+    firstName: { type: String, required: true, trim: true },
+    lastName:  { type: String, required: true, trim: true },
+    email:     { type: String, required: true, lowercase: true, trim: true },
+    subject:   { type: String, required: true, trim: true },
+    message:   { type: String, required: true },
   },
-  {
-    timestamps: true, // Adds createdAt and updatedAt automatically
-  }
+  { timestamps: true }
 );
 
-// Create Contact model
-const Contact = mongoose.model("Contact", contactSchema);
+const Contact = mongoose.models.Contact || mongoose.model("Contact", contactSchema);
 
-/**
- * Connect to MongoDB Atlas
- * @returns {Promise<void>}
- */
+// ✅ Vercel serverless fix — reuse existing connection instead of reconnecting every request
+let isConnected = false;
+
 export async function connectDB() {
-  try {
-    if (!MONGO_URI) {
-      throw new Error("MONGO_URI is not set in environment variables");
-    }
+  if (isConnected && mongoose.connection.readyState === 1) {
+    console.log("✓ Reusing existing MongoDB connection");
+    return;
+  }
 
+  if (!MONGO_URI) {
+    throw new Error("MONGO_URI is not set in environment variables");
+  }
+
+  try {
     await mongoose.connect(MONGO_URI, {
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 10000,
+      socketTimeoutMS: 45000,
+      bufferCommands: false, // ✅ Disable buffering for serverless
     });
 
+    isConnected = true;
     console.log("✓ Connected to MongoDB Atlas");
   } catch (error) {
+    isConnected = false;
     console.error("Failed to connect to MongoDB:", error.message);
     throw error;
   }
 }
 
-/**
- * Save contact form submission to MongoDB
- * @param {Object} data - Contact form data
- * @param {string} data.firstName - Sender's first name
- * @param {string} data.lastName - Sender's last name
- * @param {string} data.email - Sender's email
- * @param {string} data.subject - Email subject
- * @param {string} data.message - Email message body
- * @returns {Promise<Object>} Saved contact document
- */
 export async function saveContact(data) {
   try {
+    // ✅ Always ensure connection before saving in serverless
+    await connectDB();
+
     const contact = new Contact({
       firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      subject: data.subject,
-      message: data.message,
+      lastName:  data.lastName,
+      email:     data.email,
+      subject:   data.subject,
+      message:   data.message,
     });
 
     const savedContact = await contact.save();
@@ -93,13 +67,10 @@ export async function saveContact(data) {
   }
 }
 
-/**
- * Disconnect from MongoDB (useful for graceful shutdown)
- * @returns {Promise<void>}
- */
 export async function disconnectDB() {
   try {
     await mongoose.disconnect();
+    isConnected = false;
     console.log("✓ Disconnected from MongoDB");
   } catch (error) {
     console.error("Error disconnecting from MongoDB:", error.message);
