@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://test-ochre-chi-82.vercel.app";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
