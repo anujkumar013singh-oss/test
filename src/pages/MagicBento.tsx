@@ -7,7 +7,7 @@ const MagicBento = () => {
 
         {/* Section Header */}
         <div className="mb-24">
-          <h2 className="font-sans text-xs font-bold uppercase tracking-[0.2em]">
+          <h2 className="bricolage-grotesque text-xs font-bold uppercase tracking-[0.2em]">
             More About Me
           </h2>
         </div>
@@ -16,7 +16,7 @@ const MagicBento = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-40">
 
           <SwissItem
-            value={10}
+            value={30}
             suffix="+"
             label="Projects Completed"
             description="Completed multiple projects from concept to final implementation."
@@ -30,7 +30,7 @@ const MagicBento = () => {
           />
 
           <SwissItem
-            value={500}
+            value={5000}
             suffix="+"
             label="Development Hours"
             description="Driven by consistent practice and strong full-stack development skills."
@@ -89,18 +89,18 @@ const SwissItem = ({ value, suffix, label, description }) => {
     <div ref={ref} className="flex flex-col items-start">
 
       {/* Label */}
-      <span className="mb-4 font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-white">
+      <span className="mb-4 bricolage-grotesque text-[11px] font-bold uppercase tracking-[0.25em] text-white">
         {label}
       </span>
 
       {/* Number */}
-      <h3 className="mb-6 font-sans text-8xl md:text-9xl font-bold tracking-tight leading-none">
+      <h3 className="mb-6 bricolage-grotesque text-8xl md:text-9xl font-bold tracking-tight leading-none">
         {count.toLocaleString()}
         {suffix}
       </h3>
 
       {/* Description */}
-      <p className="max-w-sm font-sans text-base leading-6 text-white/65">
+      <p className="max-w-sm google-sans text-base leading-6 text-white/65">
         {description}
       </p>
     </div>

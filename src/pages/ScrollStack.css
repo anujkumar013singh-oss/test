@@ -114,7 +114,7 @@
 }
 
 .huge-number {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 5rem;
   font-weight: 900;
   line-height: 0.8;
@@ -122,6 +122,7 @@
 }
 
 .label {
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 1.2rem;
   text-transform: uppercase;
   color: #fff;

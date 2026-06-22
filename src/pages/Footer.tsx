@@ -46,29 +46,29 @@ const Footer = () => {
       >
         {/* Column 1: IDENTIFICATION */}
         <motion.div variants={itemVariants} className="flex flex-col gap-1">
-          <h3 className="font-sans text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
+          <h3 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
             Identification
           </h3>
-          <p className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed">
+          <p className="bricolage-grotesque text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed">
             Anuj
           </p>
-          <p className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed text-white/60">
+          <p className="bricolage-grotesque text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed text-white/60">
             Full Stack Developer
           </p>
-          <p className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed text-white/60">
+          <p className="bricolage-grotesque text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed text-white/60">
             Noida
           </p>
         </motion.div>
 
         {/* Column 2: CHANNELS */}
         <motion.div variants={itemVariants} className="flex flex-col gap-1">
-          <h3 className="font-sans text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
+          <h3 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
             Channels
           </h3>
           <div className="flex flex-col gap-2">
             <a
               href="mailto:alonesurvivor03@gamil.com"
-              className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
+              className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
             >
               Email ↗
             </a>
@@ -76,7 +76,7 @@ const Footer = () => {
               href="https://github.com/anujkumar013singh-oss"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
+              className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
             >
               GitHub ↗
             </a>
@@ -84,7 +84,7 @@ const Footer = () => {
               href="https://wa.me/9654673316?text=Hi%20I%20saw%20your%20portfolio%20and%20want%20to%20connect"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
+              className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
             >
               WhatsApp ↗
             </a>
@@ -92,7 +92,7 @@ const Footer = () => {
               href="https://www.instagram.com/lone_.03/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
+              className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
             >
               Instagram ↗
             </a>
@@ -102,22 +102,22 @@ const Footer = () => {
         {/* Column 3: COLOPHON + YEAR */}
         <motion.div variants={itemVariants} className="flex flex-col h-full justify-between">
           <div className="flex flex-col gap-1">
-            <h3 className="font-sans text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
-              Colophon
-            </h3>
-            <p className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
+          <h3 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
+            Colophon
+          </h3>
+            <p className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
               Built With: React / GSAP / Framer / Lenis
             </p>
-            <p className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
+            <p className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
               Typeface: Inter / Halvetica
             </p>
-            <p className="font-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
+            <p className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
               Deployed On: Vercel
             </p>
           </div>
 
           <div className="mt-8 md:mt-0">
-            <p className="font-sans text-xs md:text-sm font-bold uppercase tracking-widest text-white">
+            <p className="bricolage-grotesque text-xs md:text-sm font-bold uppercase tracking-widest text-white">
               2026
             </p>
           </div>
@@ -129,7 +129,7 @@ const Footer = () => {
         style={{ opacity: textOpacity, scale: textScale }}
         className="w-full flex-1 flex flex-col justify-center items-center overflow-hidden select-none pb-4"
       >
-        <h1 className="font-sans font-black text-[23vw] leading-[0.8] text-white uppercase tracking-tighter flex items-start">
+        <h1 className="bricolage-grotesque font-black text-[23vw] leading-[0.8] text-white uppercase tracking-tighter flex items-start">
           Anuj
           <span className="text-xl md:text-4xl lg:text-6xl font-medium mt-[2vw] ml-1 opacity-60">
             ®

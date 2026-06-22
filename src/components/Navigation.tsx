@@ -147,7 +147,7 @@ const Navigation = () => {
           >
             {/* Socials row */}
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4 pt-10 md:pt-0">
-              <p className="text-sm text-white/70 uppercase tracking-widest font-mono mr-2">
+              <p className="bricolage-grotesque text-sm text-white/70 uppercase tracking-widest mr-2">
                 Socials
               </p>
               {socialItems.map((item, i) => (
@@ -185,7 +185,7 @@ const Navigation = () => {
                     exit="closed"
                     className="flex items-baseline justify-between group cursor-pointer"
                   >
-                    <span className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white uppercase tracking-tight leading-none group-hover:translate-x-3 transition-transform duration-300 ease-out">
+                    <span className="bricolage-grotesque text-5xl md:text-7xl lg:text-8xl font-semibold text-white uppercase tracking-tight leading-none group-hover:translate-x-3 transition-transform duration-300 ease-out">
                       {item.label}
                     </span>
                     <span className="text-xs text-white/55 font-mono tracking-widest self-start mt-2">

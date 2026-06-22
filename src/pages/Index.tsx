@@ -39,7 +39,7 @@ const CursorFollower = () => {
 
 const BrandLogo = () => (
   <div className="fixed top-6 left-6 md:top-8 md:left-10 z-50 mix-blend-difference">
-    <h1 className="font-sans font-black text-2xl md:text-4xl tracking-tighter text-white flex items-start">
+    <h1 className="bricolage-grotesque font-black text-2xl md:text-4xl tracking-tighter text-white flex items-start">
       ANUJ
       <span className="text-xs md:text-lg font-medium ml-1 -mt-1 md:-mt-2">®</span>
     </h1>
@@ -58,7 +58,7 @@ const AvailabilityBadge = () => (
       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
       <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
     </span>
-    <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-white">
+    <span className="bricolage-grotesque font-black text-[9px] tracking-[0.25em] uppercase text-white">
       Available for work
     </span>
   </motion.div>
@@ -90,7 +90,7 @@ const SocialStrip = () => {
           className="group flex-shrink-0"
           style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
         >
-          <span className="font-sans font-black text-[10px] tracking-[0.22em] uppercase text-white group-hover:opacity-100 transition-opacity duration-300">
+          <span className="bricolage-grotesque font-black text-[10px] tracking-[0.22em] uppercase text-white group-hover:opacity-100 transition-opacity duration-300">
             {label}
           </span>
         </a>
@@ -206,12 +206,12 @@ const Index = () => {
           >
             <a href="#contact" className="group relative overflow-hidden border border-white/30 px-5 py-3 flex items-center gap-3 hover:border-white transition-colors duration-500 w-fit mb-6 md:hidden">
               <span className="absolute inset-0 bg-white translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
-              <span className="relative font-sans font-black text-[10px] tracking-[0.25em] uppercase text-white group-hover:text-black transition-colors duration-300 z-10">Get in touch</span>
+              <span className="relative bricolage-grotesque font-black text-[10px] tracking-[0.25em] uppercase text-white group-hover:text-black transition-colors duration-300 z-10">Get in touch</span>
               <svg className="relative w-3 h-3 text-white group-hover:text-black transition-colors duration-300 z-10" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M1 6h10M6 1l5 5-5 5" />
               </svg>
             </a>
-            <h1 className="font-sans font-bold text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] leading-[0.85] tracking-tighter text-white uppercase text-left">
+            <h1 className="bricolage-grotesque font-bold text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] leading-[0.85] tracking-tighter text-white uppercase text-left">
               Driven<br />by logic
             </h1>
           </motion.div>
@@ -225,7 +225,7 @@ const Index = () => {
             className="col-span-1 md:col-span-5 lg:col-span-4"
           >
             <div className="w-12 h-[2px] bg-white mb-6 md:hidden" />
-            <p className="font-sans text-xs md:text-sm font-medium text-white leading-relaxed tracking-wide uppercase text-left">
+            <p className="google-sans text-xs md:text-sm font-medium text-white leading-relaxed tracking-wide uppercase text-left">
              Full-Stack Developer working across frontend, backend, databases, and Git to build scalable web applications.
             </p>
           </motion.div>

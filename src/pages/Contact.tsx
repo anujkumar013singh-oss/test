@@ -91,17 +91,17 @@ const Contact = () => {
         {/* Left Column */}
         <div className="lg:col-span-7 flex flex-col justify-between h-full py-2">
           <motion.div variants={itemVariants} className="mb-8 lg:mb-0">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tight text-left">
+            <h1 className="bricolage-grotesque text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tight text-left">
               Contact <br />
               Me <span className="inline-block ml-2">→</span>
             </h1>
           </motion.div>
 
           <motion.div variants={itemVariants} className="mt-8 lg:mt-0 hidden lg:block">
-            <h2 className="text-xs font-bold uppercase tracking-widest mb-4 text-black/60">
+            <h2 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest mb-4 text-black/60">
               Contact Form
             </h2>
-            <p className="text-base md:text-lg font-normal leading-relaxed text-black/80 max-w-md text-left">
+            <p className="google-sans text-base md:text-lg font-normal leading-relaxed text-black/80 max-w-md text-left">
               Send me a message and I'll get back to you as soon as possible. Let's build something great together.
             </p>
           </motion.div>
@@ -173,7 +173,7 @@ const Contact = () => {
                 disabled={status === "sending"}
                 className="group flex items-center gap-3 text-lg font-bold uppercase tracking-wider hover:text-black/70 transition-colors disabled:opacity-50"
               >
-                {status === "sending" ? "Sending…" : "Send Message"}
+                <span className="bricolage-grotesque">{status === "sending" ? "Sending…" : "Send Message"}</span>
                 <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
               </button>
 

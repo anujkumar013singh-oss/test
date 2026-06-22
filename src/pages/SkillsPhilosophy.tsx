@@ -14,8 +14,10 @@ const skillCategories = [
       { name: "TypeScript", url: "https://cdn.simpleicons.org/typescript/3178C6" },
       { name: "Vue.js", url: "https://cdn.simpleicons.org/vuedotjs/4FC08D" },
       { name: "Vite", url: "https://cdn.simpleicons.org/vite/646CFF" },
+      { name: "GSAP", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782109284/pixora-uploads/pixora-bg-1782109284224-blb85v.png" },
       { name: "Vercel", url: "https://cdn.simpleicons.org/vercel/ffffff" },
       { name: "Netlify", url: "https://cdn.simpleicons.org/netlify/00C7B7" },
+      { name: "Vanilla JS", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782109516/pixora-uploads/pixora-bg-1782109516318-3jp46u.png" },
   ]
   },
   {
@@ -25,9 +27,12 @@ const skillCategories = [
       { name: "Next.js", url: "https://cdn.simpleicons.org/nextdotjs/ffffff" },
       { name: "Node.js", url: "https://cdn.simpleicons.org/nodedotjs/5FA04E" },
       { name: "Express.js", url: "https://cdn.simpleicons.org/express/ffffff" },
+      { name: "Github", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782111671/pixora-uploads/pixora-bg-1782111671587-j2876u.png" },
       { name: "Prisma", url: "https://cdn.simpleicons.org/prisma/ffffff" },
       { name: "MongoDB", url: "https://cdn.simpleicons.org/mongodb/47A248" },
+      { name: "Railway", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782111943/pixora-uploads/pixora-bg-1782111943041-xh6ali.png" },
       { name: "Git", url: "https://cdn.simpleicons.org/git/F05032" },
+      { name: "postgre sql", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782109876/pixora-uploads/pixora-bg-1782109875978-ntckil.png" },
       { name: "Render", url: "https://cdn.simpleicons.org/render/46E3B7" },
     ]
   },
@@ -35,12 +40,18 @@ const skillCategories = [
     link: "#",
     text: "AI Tools & LLM",
     items: [
-      { name: "Cursor", url: "https://cdn.simpleicons.org/cursor/ffffff" },
-      { name: "Gemini", url: "https://cdn.simpleicons.org/googlegemini/8E75B2" },
-      { name: "Trae", url: "https://images.saasworthy.com/trae_51840_logo_1753948921_8ohgm.png" },
-      { name: "Antigravity", url: "https://antigravity.google/assets/image/brand/antigravity-icon__white.png" },
-      { name: "Windsurf", url: "https://cdn.simpleicons.org/windsurf/2D9EFF" },
       { name: "Claude", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Claude_AI_symbol.svg/960px-Claude_AI_symbol.svg.png" },
+      { name: "Cursor", url: "https://cdn.simpleicons.org/cursor/ffffff" },
+      { name: "Antigravity", url: "https://antigravity.google/assets/image/brand/antigravity-icon__white.png" },
+      { name: "Open Code", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782111156/pixora-uploads/pixora-bg-1782111156769-rbjkti.png" },
+      { name: "Gemini", url: "https://cdn.simpleicons.org/googlegemini/8E75B2" },
+      { name: "Manus", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782111096/pixora-uploads/pixora-bg-1782111096872-y810y2.png" },
+      { name: "Github Co-Pilot", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782110081/pixora-uploads/pixora-bg-1782110081328-wwo2r2.png" },
+      { name: "Notion", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782110989/pixora-uploads/pixora-bg-1782110989470-jm088r.png" },
+      { name: "Trae", url: "https://images.saasworthy.com/trae_51840_logo_1753948921_8ohgm.png" },
+      { name: "Qwen", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782110140/pixora-uploads/pixora-bg-1782110140415-pzkdgf.png" },
+      { name: "Windsurf", url: "https://cdn.simpleicons.org/windsurf/2D9EFF" },
+      { name: "Qoder", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782110185/pixora-uploads/pixora-bg-1782110185354-l632jn.png" },
       { name: "Codex", url: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/codex-color.png" },
     ]
   }
@@ -59,13 +70,13 @@ const SkillsPhilosophy = () => {
           className="grid grid-cols-1 md:grid-cols-5 gap-y-8"
         >
           <div className="md:col-span-1">
-            <h2 className="text-xs font-bold uppercase tracking-widest">Skills & Philosophy</h2>
+            <h2 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest">Skills & Philosophy</h2>
           </div>
           <div className="md:col-span-4">
-            <blockquote className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black uppercase leading-tight">
+            <blockquote className="bricolage-grotesque text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black uppercase leading-tight">
               “The only way to learn a new programming language is by writing programs in it.”
             </blockquote>
-            <p className="mt-6">— Dennis Ritchie</p>
+            <p className="google-sans mt-6">— Dennis Ritchie</p>
           </div>
         </motion.div>
       </div>

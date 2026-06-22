@@ -6,38 +6,38 @@ import './ScrollStack.css';
 const projects = [
   {
     id: "001",
-    title: "Clive Christen",
-    stack: "React / Next.js / GSAP / Tailwind CSS / Figma / Git",
-    description: "Built a luxury perfume brand website with scroll-triggered animations and cinematic transitions. Designed a premium editorial experience where motion and typography communicated exclusivity. Solved performance and scroll-sync challenges to deliver a high-end, immersive product browsing experience.",
-    links: { live: "https://clive-christen.vercel.app/", code: "#" },
-    image: "https://cdn.pixabay.com/photo/2020/04/19/01/15/perfume-5061479_1280.jpg",
+    title: "Velore",
+    stack: "React / Node.js / Express / MongoDB / Stripe / Tailwind CSS",
+    description: "Developed Velore, a full-stack fashion e-commerce application featuring secure authentication, user accounts, product management, trending collections, shopping cart, coupon system, image sliders, and Stripe payment integration. Built a scalable backend with database-driven order and user management, focusing on performance, security, responsive design, and a seamless shopping experience from product discovery to checkout.",
+    links: { live: "https://velore-fashion.vercel.app/", code: "#" },
+    image: "https://jd-institute-of-fashion-technology.b-cdn.net/wp-content/uploads/2021/07/Types-of-Fashion-Photography-Thumbnail.jpg",
     cta: "Live Project"
   },
   {
     id: "002",
-    title: "Lorix Technologies",
-    stack: "React / Next.js / GSAP / Three.js / Tailwind CSS / Vercel",
-    description: "Built a kinetic, motion-driven corporate website with continuous scroll animations and 3D visuals. Solved major performance challenges through animation layering and IntersectionObserver pausing. Pushed frontend skills into advanced animation architecture and performance budgeting.",
-    links: { live: "https://lorix-technologies.vercel.app/", code: "#" },
-    image: "https://ik.imagekit.io/yrpp2zi5o/lorix.png",
+    title: "Clive Christen",
+    stack: "React / Next.js / GSAP / Tailwind CSS / Figma / Git",
+    description: "Built a luxury perfume brand website with cinematic transitions, immersive storytelling, and GSAP-powered scroll animations. Crafted a premium editorial experience where typography, motion, and visual hierarchy communicated exclusivity and sophistication. Solved complex scroll-synchronization and performance challenges to create seamless interactions, resulting in a high-end digital experience that enhanced product discovery, engagement, and brand perception.",
+    links: { live: "https://clive-christen.vercel.app/", code: "#" },
+    image: "https://images.pexels.com/photos/9202894/pexels-photo-9202894.jpeg",
     cta: "Live Project"
   },
   {
     id: "003",
-    title: "DigiLearners",
-    stack: "React / Node.js / Express / MongoDB / Brevo / Render",
-    description: "First freelance full-stack build — owned everything from design to deployment. Solved live CORS issues, email configuration, and database integration for a real paying client. Real accountability pushed quality higher than any personal project had before.",
-    links: { live: "https://digi-learner-omega.vercel.app/", code: "#" },
-    image: "https://t3.ftcdn.net/jpg/11/13/23/92/360_F_1113239204_4py0u7gyARiksbcwVJMLXwH3ZxUzVMTA.jpg",
+    title: "Oxford University",
+    stack: "React / Node.js / GSAP / MongoDB / Tailwind CSS",
+    description: "Developed a modern university platform using React.js, featuring course management, placement portals, AI chatbot integration, student-focused information systems, and a comprehensive admin dashboard. Implemented GSAP ScrollTrigger animations for engaging interactions and smooth transitions while maintaining performance and responsiveness. Designed a clean, scalable architecture that delivers an intuitive and professional educational experience.",
+    links: { live: "https://oxford-university-ten.vercel.app/", code: "#" },
+    image: "https://media.jacobin.com/images/2021/9/930623500539.jpg",
     cta: "Live Project"
   },
   {
     id: "004",
-    title: "Volera Fashion Brand",
-    stack: "React / Tailwind CSS / GSAP / Framer Motion / ImageKit",
-    description: "Built a seven-page fashion brand website with editorial browsing experience. Solved image performance with ImageKit CDN and maintained brand consistency through a disciplined design system. Developed brand-thinking and fashion-specific UX design skills.",
-    links: { live: "https://velora-a-fashion-clothes-brand.vercel.app/", code: "#" },
-    image: "https://t4.ftcdn.net/jpg/08/52/41/57/360_F_852415708_VB64Dcb5a2d6RAakoIH7z8noJ6M9OZAQ.jpg",
+    title: "Lorix Technologies",
+    stack: "React / Next.js / GSAP / Three.js / Tailwind CSS / Vercel",
+    description: "Built a kinetic, motion-driven corporate website featuring continuous scroll animations, immersive interactions, and dynamic 3D visuals. Engineered advanced animation systems with layered motion architecture and performance optimization techniques. Leveraged IntersectionObserver-based animation control to reduce resource usage while maintaining smooth, responsive experiences, delivering a visually engaging platform that balanced creativity, scalability, and high-performance frontend engineering.",
+    links: { live: "https://lorix-technologies.vercel.app/", code: "#" },
+    image: "https://ik.imagekit.io/yrpp2zi5o/lorix.png",
     cta: "Live Project"
   },
 ];
@@ -60,7 +60,7 @@ const ScrollStackCard = ({ project, index }: ScrollStackCardProps) => {
           <span className="huge-number">{project.id}</span>
           <div className="client-info">
             <span className="label">{project.title}</span>
-            <span className="client-name">{project.stack}</span>
+            <span className="client-name google-sans">{project.stack}</span>
           </div>
         </div>
 
@@ -85,7 +85,7 @@ const ScrollStackCard = ({ project, index }: ScrollStackCardProps) => {
           onLoad={() => window.dispatchEvent(new Event('resize'))}
         />
         <div className="project-description">
-          <p>{project.description}</p>
+          <p className="google-sans">{project.description}</p>
         </div>
       </div>
     </StarBorder>
@@ -382,7 +382,7 @@ const SelectedWorks = () => {
           <div className="marquee-selected-works__track">
             {[0, 1, 2, 3].map((blockIndex) => (
               <div key={blockIndex} className="marquee-selected-works__segment" aria-hidden={blockIndex > 0 ? "true" : undefined}>
-                <span className="marquee-selected-works__text">Selected Works</span>
+                <span className="marquee-selected-works__text bricolage-grotesque">Selected Works</span>
                 <span className="marquee-selected-works__dash">—</span>
               </div>
             ))}
@@ -442,16 +442,16 @@ const SelectedWorks = () => {
             />
 
             <g ref={figureGroupRef}>
-              <text ref={textAnalyzeRef} x="750" y="150" fill="#ffffff" style={{ fontFamily: 'sans-serif', fontWeight: 800, fontSize: '100px', opacity: 0.3 }} textAnchor="middle" dy=".3em">ANALYZE</text>
+              <text ref={textAnalyzeRef} x="750" y="150" fill="#ffffff" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: '100px', opacity: 0.3 }} textAnchor="middle" dy=".3em">ANALYZE</text>
               <circle cx="750" cy="250" r="15" fill="#ffffff" filter="url(#glow)" />
 
-              <text ref={textDesignRef} x="250" y="700" fill="#ffffff" style={{ fontFamily: 'sans-serif', fontWeight: 800, fontSize: '100px', opacity: 0.3 }} textAnchor="middle" dy=".3em">DESIGN</text>
+              <text ref={textDesignRef} x="250" y="700" fill="#ffffff" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: '100px', opacity: 0.3 }} textAnchor="middle" dy=".3em">DESIGN</text>
               <circle cx="250" cy="800" r="15" fill="#ffffff" filter="url(#glow)" />
 
-              <text ref={textBuildRef} x="1250" y="1250" fill="#ffffff" style={{ fontFamily: 'sans-serif', fontWeight: 800, fontSize: '100px', opacity: 0.3 }} textAnchor="middle" dy=".3em">BUILD</text>
+              <text ref={textBuildRef} x="1250" y="1250" fill="#ffffff" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: '100px', opacity: 0.3 }} textAnchor="middle" dy=".3em">BUILD</text>
               <circle cx="1250" cy="1350" r="15" fill="#ffffff" filter="url(#glow)" />
 
-              <text ref={textDeliverRef} x="750" y="1800" fill="#ffffff" style={{ fontFamily: 'sans-serif', fontWeight: 800, fontSize: '100px', opacity: 0.3 }} textAnchor="middle" dy=".3em">DELIVER</text>
+              <text ref={textDeliverRef} x="750" y="1800" fill="#ffffff" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: '100px', opacity: 0.3 }} textAnchor="middle" dy=".3em">DELIVER</text>
               <circle cx="750" cy="1900" r="20" fill="#ffffff" filter="url(#glow)" />
             </g>
           </svg>
@@ -464,7 +464,7 @@ const SelectedWorks = () => {
               { text: 'BUILD', offset: '62%' }, { text: '●', offset: '73%' },
               { text: 'DELIVER', offset: '85%' },
             ].map((item, i) => (
-              <text key={i} fill="#ffffff" style={{ fontFamily: 'sans-serif', fontWeight: 800, fontSize: item.text === '●' ? '50px' : '100px', textTransform: 'uppercase' }} dy={item.text === '●' ? '-18' : '0'}>
+              <text key={i} fill="#ffffff" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: item.text === '●' ? '50px' : '100px', textTransform: 'uppercase' }} dy={item.text === '●' ? '-18' : '0'}>
                 <textPath href="#arc-path" startOffset={item.offset} textAnchor="middle">{item.text}</textPath>
               </text>
             ))}

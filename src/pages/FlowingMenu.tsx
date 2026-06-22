@@ -90,7 +90,7 @@ const MenuItem: React.FC<MenuItemData & { speed: number; marqueeBgColor: string;
         onClick={handleTextClick}
       >
         {/* Main Text */}
-        <span className="menu__item-text">{text}</span>
+        <span className="menu__item-text bricolage-grotesque">{text}</span>
         
         {/* 45 Degree Arrow Icon */}
         <svg 
