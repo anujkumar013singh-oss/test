@@ -7,7 +7,7 @@ const projects = [
   {
     id: "001",
     title: "Velore",
-    stack: "React / Node.js / Express / MongoDB / Stripe / Tailwind CSS",
+    stack: "MongoDB / Express / React / Node.js / MERN / Authentication / Payment Integration / Booking ID",
     description: "Developed Velore, a full-stack fashion e-commerce application featuring secure authentication, user accounts, product management, trending collections, shopping cart, coupon system, image sliders, and Stripe payment integration. Built a scalable backend with database-driven order and user management, focusing on performance, security, responsive design, and a seamless shopping experience from product discovery to checkout.",
     links: { live: "https://velore-fashion.vercel.app/", code: "#" },
     image: "https://jd-institute-of-fashion-technology.b-cdn.net/wp-content/uploads/2021/07/Types-of-Fashion-Photography-Thumbnail.jpg",
@@ -16,7 +16,7 @@ const projects = [
   {
     id: "002",
     title: "Clive Christen",
-    stack: "React / Next.js / GSAP / Tailwind CSS / Figma / Git",
+    stack: "React / Next.js / GSAP / ScrollTrigger / Git / Tailwind CSS / Smooth Scrolling",
     description: "Built a luxury perfume brand website with cinematic transitions, immersive storytelling, and GSAP-powered scroll animations. Crafted a premium editorial experience where typography, motion, and visual hierarchy communicated exclusivity and sophistication. Solved complex scroll-synchronization and performance challenges to create seamless interactions, resulting in a high-end digital experience that enhanced product discovery, engagement, and brand perception.",
     links: { live: "https://clive-christen.vercel.app/", code: "#" },
     image: "https://images.pexels.com/photos/9202894/pexels-photo-9202894.jpeg",
@@ -25,7 +25,7 @@ const projects = [
   {
     id: "003",
     title: "Oxford University",
-    stack: "React / Node.js / GSAP / MongoDB / Tailwind CSS",
+    stack: "React.js / AI Chatbot / Admin Dashboards / Lead Management / GSAP / Node.js / MongoDB / Tailwind CSS",
     description: "Developed a modern university platform using React.js, featuring course management, placement portals, AI chatbot integration, student-focused information systems, and a comprehensive admin dashboard. Implemented GSAP ScrollTrigger animations for engaging interactions and smooth transitions while maintaining performance and responsiveness. Designed a clean, scalable architecture that delivers an intuitive and professional educational experience.",
     links: { live: "https://oxford-university-ten.vercel.app/", code: "#" },
     image: "https://media.jacobin.com/images/2021/9/930623500539.jpg",
@@ -33,11 +33,11 @@ const projects = [
   },
   {
     id: "004",
-    title: "Lorix Technologies",
-    stack: "React / Next.js / GSAP / Three.js / Tailwind CSS / Vercel",
-    description: "Built a kinetic, motion-driven corporate website featuring continuous scroll animations, immersive interactions, and dynamic 3D visuals. Engineered advanced animation systems with layered motion architecture and performance optimization techniques. Leveraged IntersectionObserver-based animation control to reduce resource usage while maintaining smooth, responsive experiences, delivering a visually engaging platform that balanced creativity, scalability, and high-performance frontend engineering.",
-    links: { live: "https://lorix-technologies.vercel.app/", code: "#" },
-    image: "https://ik.imagekit.io/yrpp2zi5o/lorix.png",
+    title: "The Forge",
+    stack: "React / Node.js / Express / MongoDB / GSAP / Authentication / Dashboard UI",
+    description: "Developed a full-stack gym management application using React, Node.js, and Express with secure authentication, role-based dashboards, membership plans, payment integration, and database management. Solved challenges involving dashboard architecture, API integration, role-based access control, database connectivity, authentication flows, and performance optimization while delivering a responsive, animation-rich, and scalable user experience.",
+    links: { live: "https://the-forge-gym.vercel.app/", code: "#" },
+    image: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1783145972/pixora-uploads/pixora-1783145972495-3jw1tr.jpg",
     cta: "Live Project"
   },
 ];

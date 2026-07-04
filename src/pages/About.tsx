@@ -61,6 +61,14 @@ const About = () => {
             <div className="flex flex-col gap-6">
               <div>
                 <p className="bricolage-grotesque text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-tight">
+                  Bachelor of Computer Applications
+                </p>
+                <p className="google-sans text-xl md:text-2xl lg:text-3xl font-normal text-black/70 leading-tight tracking-tight">
+                  Galgotias University | In Progress
+                </p>
+              </div>
+              <div>
+                <p className="bricolage-grotesque text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-tight">
                   Web Development Certification
                 </p>
                 <p className="google-sans text-xl md:text-2xl lg:text-3xl font-normal text-black/70 leading-tight tracking-tight">
