@@ -10,7 +10,7 @@ const projects = [
     stack: "MongoDB / Express / React / Node.js / MERN / Authentication / Payment Integration / Booking ID",
     description: "Developed Velore, a full-stack fashion e-commerce application featuring secure authentication, user accounts, product management, trending collections, shopping cart, coupon system, image sliders, and Stripe payment integration. Built a scalable backend with database-driven order and user management, focusing on performance, security, responsive design, and a seamless shopping experience from product discovery to checkout.",
     links: { live: "https://velore-fashion.vercel.app/", code: "#" },
-    image: "https://jd-institute-of-fashion-technology.b-cdn.net/wp-content/uploads/2021/07/Types-of-Fashion-Photography-Thumbnail.jpg",
+    image: "https://ff417cd8.delivery.rocketcdn.me/wp-content/uploads/2026/02/20.-Indian-Lehangas-1-1.jpg",
     cta: "Live Project"
   },
   {
