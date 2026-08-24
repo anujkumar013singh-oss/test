@@ -7,7 +7,7 @@ const projects = [
   {
     id: "001",
     title: "Velore",
-    stack: "MongoDB / Express / React / Node.js / MERN / Authentication / Payment Integration / Booking ID",
+    stack: "MERN STACK | Payment Integration | Authentication | Product Management | Checkout",
     description: "Developed Velore, a full-stack fashion e-commerce application featuring secure authentication, user accounts, product management, trending collections, shopping cart, coupon system, image sliders, and Stripe payment integration. Built a scalable backend with database-driven order and user management, focusing on performance, security, responsive design, and a seamless shopping experience from product discovery to checkout.",
     links: { live: "https://velore-fashion.vercel.app/", code: "#" },
     image: "https://ff417cd8.delivery.rocketcdn.me/wp-content/uploads/2026/02/20.-Indian-Lehangas-1-1.jpg",
@@ -15,29 +15,29 @@ const projects = [
   },
   {
     id: "002",
-    title: "Clive Christen",
-    stack: "React / Next.js / GSAP / ScrollTrigger / Git / Tailwind CSS / Smooth Scrolling",
-    description: "Built a luxury perfume brand website with cinematic transitions, immersive storytelling, and GSAP-powered scroll animations. Crafted a premium editorial experience where typography, motion, and visual hierarchy communicated exclusivity and sophistication. Solved complex scroll-synchronization and performance challenges to create seamless interactions, resulting in a high-end digital experience that enhanced product discovery, engagement, and brand perception.",
-    links: { live: "https://clive-christen.vercel.app/", code: "#" },
-    image: "https://images.pexels.com/photos/9202894/pexels-photo-9202894.jpeg",
+    title: "Scorix",
+    stack: "Postgresql | PERN STACK | Authentication | Neon Cloud | Admin Dashboard",
+    description: "SCORIX provides dynamic spreadsheet marks entry, automated PASS or BACKLOG evaluation, universal transcripts, and student dispute resolution. Key engineering challenges involved Excel clipboard alignment, PostgreSQL status constraints, and Vercel SPA routing. Developing this app taught us resilient database transactions and unified monorepo deployment. Schools choose SCORIX to eliminate manual calculation errors, verify student marks instantly, and publish official exam records safely each new day.",
+    links: { live: "https://scorix-portal.vercel.app/", code: "#" },
+    image: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1787555385/pixora-uploads/pixora-1787555385447-mlh7la.jpg",
     cta: "Live Project"
   },
   {
     id: "003",
-    title: "Oxford University",
-    stack: "React.js / AI Chatbot / Admin Dashboards / Lead Management / GSAP / Node.js / MongoDB / Tailwind CSS",
-    description: "Developed a modern university platform using React.js, featuring course management, placement portals, AI chatbot integration, student-focused information systems, and a comprehensive admin dashboard. Implemented GSAP ScrollTrigger animations for engaging interactions and smooth transitions while maintaining performance and responsiveness. Designed a clean, scalable architecture that delivers an intuitive and professional educational experience.",
-    links: { live: "https://oxford-university-ten.vercel.app/", code: "#" },
-    image: "https://media.jacobin.com/images/2021/9/930623500539.jpg",
+    title: "Clive Christen",
+    stack: "REACT | GSAP | Scroll TRigger | Tailwind CSS | Cinematic Animation",
+    description: "Built a luxury perfume brand website with cinematic transitions, immersive storytelling, and GSAP-powered scroll animations. Crafted a premium editorial experience where typography, motion, and visual hierarchy communicated exclusivity and sophistication. Solved complex scroll-synchronization and performance challenges to create seamless interactions, resulting in a high-end digital experience that enhanced product discovery, engagement, and brand perception.",
+    links: { live: "https://clive-christen.vercel.app/", code: "#" },
+    image: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1787556464/pixora-uploads/pixora-1787556464041-w5pk51.jpg",
     cta: "Live Project"
   },
   {
     id: "004",
     title: "The Forge",
-    stack: "React / Node.js / Express / MongoDB / GSAP / Authentication / Dashboard UI",
+    stack: "MERN STACK | Dashboards | Authentication | Motion Graphics | BREVO",
     description: "Developed a full-stack gym management application using React, Node.js, and Express with secure authentication, role-based dashboards, membership plans, payment integration, and database management. Solved challenges involving dashboard architecture, API integration, role-based access control, database connectivity, authentication flows, and performance optimization while delivering a responsive, animation-rich, and scalable user experience.",
     links: { live: "https://the-forge-gym.vercel.app/", code: "#" },
-    image: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1783145972/pixora-uploads/pixora-1783145972495-3jw1tr.jpg",
+    image: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1787556621/pixora-uploads/pixora-1787556621266-10dd7y.png",
     cta: "Live Project"
   },
 ];
