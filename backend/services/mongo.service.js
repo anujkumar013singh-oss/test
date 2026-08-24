@@ -16,13 +16,15 @@ const contactSchema = new mongoose.Schema(
 
 const Contact = mongoose.models.Contact || mongoose.model("Contact", contactSchema);
 
-// ✅ Vercel serverless fix — reuse existing connection instead of reconnecting every request
-let isConnected = false;
+let connectionPromise = null;
 
 export async function connectDB() {
-  if (isConnected && mongoose.connection.readyState === 1) {
-    console.log("✓ Reusing existing MongoDB connection");
-    return;
+  if (mongoose.connection.readyState === 1) {
+    return mongoose.connection;
+  }
+
+  if (mongoose.connection.readyState === 2 && connectionPromise) {
+    return connectionPromise;
   }
 
   if (!MONGO_URI) {
@@ -30,16 +32,16 @@ export async function connectDB() {
   }
 
   try {
-    await mongoose.connect(MONGO_URI, {
+    connectionPromise = mongoose.connect(MONGO_URI, {
       serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
-      bufferCommands: false, // ✅ Disable buffering for serverless
     });
 
-    isConnected = true;
+    await connectionPromise;
     console.log("✓ Connected to MongoDB Atlas");
+    return mongoose.connection;
   } catch (error) {
-    isConnected = false;
+    connectionPromise = null;
     console.error("Failed to connect to MongoDB:", error.message);
     throw error;
   }
@@ -70,7 +72,7 @@ export async function saveContact(data) {
 export async function disconnectDB() {
   try {
     await mongoose.disconnect();
-    isConnected = false;
+    connectionPromise = null;
     console.log("✓ Disconnected from MongoDB");
   } catch (error) {
     console.error("Error disconnecting from MongoDB:", error.message);

@@ -29,33 +29,33 @@ router.post("/contact", async (req, res) => {
 
     const contactData = { firstName, lastName, email, subject, message };
 
-    // Send email and save to MongoDB in parallel
-    // BUG 4 FIX: Keep route logic clean, delegate to services
-    const [emailResult, mongoResult] = await Promise.all([
-      sendEmail(contactData),
+    // Save to MongoDB and send email concurrently using allSettled
+    const [dbResult, emailResult] = await Promise.allSettled([
       saveContact(contactData),
+      sendEmail(contactData),
     ]);
 
-    console.log("✓ Contact form processed successfully");
-    res.status(200).json({
+    if (dbResult.status === "rejected") {
+      console.error("❌ MongoDB save error:", dbResult.reason?.message || dbResult.reason);
+      return res.status(500).json({
+        error: "Failed to save message to database. Please try again.",
+        details: process.env.NODE_ENV === "development" ? dbResult.reason?.message : undefined,
+      });
+    }
+
+    if (emailResult.status === "rejected") {
+      console.warn("⚠️ Email notification failed, but contact was successfully saved to MongoDB:", emailResult.reason?.message);
+    }
+
+    console.log("✓ Contact form processed successfully (saved to DB)");
+    return res.status(200).json({
       success: true,
       message: "Your message has been sent and saved",
     });
   } catch (error) {
     console.error("Error processing contact form:", error.message);
     
-    // Check if it's a MongoDB connection error
-    if (error.message.includes("connect ECONNREFUSED") || 
-        error.message.includes("MongoNetworkError") ||
-        error.message.includes("server selection timeout")) {
-      console.error("⚠️ MongoDB connection failed. Email may still have been sent.");
-      return res.status(503).json({
-        error: "Service temporarily unavailable. Email sent but not saved to database.",
-        details: "Database connection failed. Please try again later.",
-      });
-    }
-    
-    res.status(500).json({
+    return res.status(500).json({
       error: "Failed to process your message. Please try again later.",
       details: process.env.NODE_ENV === "development" ? error.message : undefined,
     });
