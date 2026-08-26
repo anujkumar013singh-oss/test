@@ -228,10 +228,10 @@ const Index = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="col-span-1 md:col-span-6 lg:col-span-5"
+            className="col-span-1 md:col-span-7 lg:col-span-6"
           >
             <div className="w-12 h-[2px] bg-white mb-6 md:hidden" />
-            <p className="google-sans text-xs md:text-sm font-medium text-white leading-relaxed tracking-wide uppercase text-left">
+            <p className="google-sans text-sm md:text-base lg:text-lg font-semibold text-white leading-relaxed tracking-wide uppercase text-left">
               Anuj Singh — Full-Stack Developer working across frontend, backend, databases, and Git to build scalable web applications.
             </p>
           </motion.div>
