@@ -46,7 +46,7 @@ const About = () => {
           style={{ y: y1, opacity: opacity1 }}
         >
           <h2 className="bricolage-grotesque text-xs md:text-sm font-bold uppercase tracking-widest">
-            Anuj Singh Devfolio — Background & Data
+            Background & Data
           </h2>
         </motion.div>
 
