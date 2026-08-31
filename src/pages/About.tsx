@@ -45,9 +45,12 @@ const About = () => {
           className="md:col-span-3 lg:col-span-3 pt-2"
           style={{ y: y1, opacity: opacity1 }}
         >
-          <h2 className="bricolage-grotesque text-xs md:text-sm font-bold uppercase tracking-widest">
+          <h2 className="bricolage-grotesque text-xs md:text-sm font-bold uppercase tracking-widest mb-2">
             Background & Data
           </h2>
+          <p className="google-sans text-xs text-black/60 font-medium leading-relaxed hidden md:block">
+            Welcome to Anuj Singh Devstudio — a space for cinematic, scroll-driven full stack web work.
+          </p>
         </motion.div>
 
         {/* Right Column: The Data List */}
