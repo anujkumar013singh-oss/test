@@ -98,10 +98,10 @@ const Contact = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="mt-8 lg:mt-0 hidden lg:block">
-            <h2 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest mb-4 text-black/60">
+            <h2 className="bricolage-grotesque text-sm md:text-base font-extrabold uppercase tracking-widest mb-3 text-black">
               Contact Form
             </h2>
-            <p className="google-sans text-base md:text-lg font-normal leading-relaxed text-black/80 max-w-md text-left">
+            <p className="google-sans text-lg md:text-xl font-medium leading-relaxed text-black/90 max-w-md text-left">
               Send me a message and I'll get back to you as soon as possible. Let's build something great together.
             </p>
           </motion.div>
@@ -109,59 +109,59 @@ const Contact = () => {
 
         {/* Right Column: Form */}
         <motion.div className="lg:col-span-5 flex flex-col justify-center" variants={itemVariants}>
-          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
 
             {/* Name */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex flex-col gap-1">
-                <label htmlFor="firstName" className="text-xs font-bold uppercase tracking-wider">First Name*</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="firstName" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">First Name*</label>
                 <input
                   type="text" id="firstName" name="firstName"
                   value={formData.firstName} onChange={handleChange}
-                  className="w-full bg-transparent border-b border-black/30 py-1 text-lg font-medium focus:border-black focus:outline-none transition-colors"
+                  className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors"
                   required
                 />
               </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="lastName" className="text-xs font-bold uppercase tracking-wider">Last Name*</label>
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="lastName" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">Last Name*</label>
                 <input
                   type="text" id="lastName" name="lastName"
                   value={formData.lastName} onChange={handleChange}
-                  className="w-full bg-transparent border-b border-black/30 py-1 text-lg font-medium focus:border-black focus:outline-none transition-colors"
+                  className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors"
                   required
                 />
               </div>
             </div>
 
             {/* Email & Subject */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex flex-col gap-1">
-                <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider">Email*</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="email" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">Email*</label>
                 <input
                   type="email" id="email" name="email"
                   value={formData.email} onChange={handleChange}
-                  className="w-full bg-transparent border-b border-black/30 py-1 text-lg font-medium focus:border-black focus:outline-none transition-colors"
+                  className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors"
                   required
                 />
               </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider">Subject*</label>
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="subject" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">Subject*</label>
                 <input
                   type="text" id="subject" name="subject"
                   value={formData.subject} onChange={handleChange}
-                  className="w-full bg-transparent border-b border-black/30 py-1 text-lg font-medium focus:border-black focus:outline-none transition-colors"
+                  className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors"
                   required
                 />
               </div>
             </div>
 
             {/* Message */}
-            <div className="flex flex-col gap-1">
-              <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider">Message*</label>
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="message" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">Message*</label>
               <textarea
                 id="message" name="message" rows={3}
                 value={formData.message} onChange={handleChange}
-                className="w-full bg-transparent border-b border-black/30 py-1 text-lg font-medium focus:border-black focus:outline-none transition-colors resize-none"
+                className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors resize-none"
                 required
               />
             </div>
@@ -171,7 +171,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="group flex items-center gap-3 text-lg font-bold uppercase tracking-wider hover:text-black/70 transition-colors disabled:opacity-50"
+                className="group flex items-center gap-3 text-xl font-black uppercase tracking-wider text-black hover:text-black/70 transition-colors disabled:opacity-50"
               >
                 <span className="bricolage-grotesque">{status === "sending" ? "Sending…" : "Send Message"}</span>
                 <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>

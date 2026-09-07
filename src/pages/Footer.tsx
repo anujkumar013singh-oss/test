@@ -45,30 +45,30 @@ const Footer = () => {
         viewport={{ once: true }}
       >
         {/* Column 1: IDENTIFICATION */}
-        <motion.div variants={itemVariants} className="flex flex-col gap-1">
-          <h3 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
+        <motion.div variants={itemVariants} className="flex flex-col gap-1.5">
+          <h3 className="bricolage-grotesque text-sm md:text-base font-extrabold uppercase tracking-widest mb-3 text-white">
             Identification
           </h3>
-          <p className="bricolage-grotesque text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed">
+          <p className="bricolage-grotesque text-base md:text-lg font-extrabold uppercase tracking-wide leading-relaxed text-white">
             Anuj Singh
           </p>
-          <p className="bricolage-grotesque text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed text-white/60">
+          <p className="google-sans text-sm md:text-base font-semibold uppercase tracking-wide leading-relaxed text-white/80">
             Full Stack Developer
           </p>
-          <p className="bricolage-grotesque text-xs md:text-sm font-medium uppercase tracking-wide leading-relaxed text-white/60">
+          <p className="google-sans text-sm md:text-base font-semibold uppercase tracking-wide leading-relaxed text-white/80">
             Noida
           </p>
         </motion.div>
 
         {/* Column 2: CHANNELS */}
-        <motion.div variants={itemVariants} className="flex flex-col gap-1">
-          <h3 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
+        <motion.div variants={itemVariants} className="flex flex-col gap-1.5">
+          <h3 className="bricolage-grotesque text-sm md:text-base font-extrabold uppercase tracking-widest mb-3 text-white">
             Channels
           </h3>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2.5">
             <a
               href="mailto:alonesurvivor03@gamil.com"
-              className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
+              className="google-sans text-sm md:text-base font-bold uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1.5 text-white hover:text-white/80 transition-colors"
             >
               Email ↗
             </a>
@@ -76,7 +76,7 @@ const Footer = () => {
               href="https://github.com/anujkumar013singh-oss"
               target="_blank"
               rel="noopener noreferrer"
-              className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
+              className="google-sans text-sm md:text-base font-bold uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1.5 text-white hover:text-white/80 transition-colors"
             >
               GitHub ↗
             </a>
@@ -84,7 +84,7 @@ const Footer = () => {
               href="https://wa.me/9654673316?text=Hi%20I%20saw%20your%20portfolio%20and%20want%20to%20connect"
               target="_blank"
               rel="noopener noreferrer"
-              className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
+              className="google-sans text-sm md:text-base font-bold uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1.5 text-white hover:text-white/80 transition-colors"
             >
               WhatsApp ↗
             </a>
@@ -92,7 +92,7 @@ const Footer = () => {
               href="https://www.instagram.com/lone_.03/"
               target="_blank"
               rel="noopener noreferrer"
-              className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1"
+              className="google-sans text-sm md:text-base font-bold uppercase tracking-wide hover:underline underline-offset-4 decoration-1 w-fit flex items-center gap-1.5 text-white hover:text-white/80 transition-colors"
             >
               Instagram ↗
             </a>
@@ -101,23 +101,23 @@ const Footer = () => {
 
         {/* Column 3: COLOPHON + YEAR */}
         <motion.div variants={itemVariants} className="flex flex-col h-full justify-between">
-          <div className="flex flex-col gap-1">
-          <h3 className="bricolage-grotesque text-xs font-bold uppercase tracking-widest mb-4 text-white/80">
-            Colophon
-          </h3>
-            <p className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
+          <div className="flex flex-col gap-1.5">
+            <h3 className="bricolage-grotesque text-sm md:text-base font-extrabold uppercase tracking-widest mb-3 text-white">
+              Colophon
+            </h3>
+            <p className="google-sans text-sm md:text-base font-semibold uppercase tracking-wide text-white/80">
               Built With: React / GSAP / Framer / Lenis
             </p>
-            <p className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
+            <p className="google-sans text-sm md:text-base font-semibold uppercase tracking-wide text-white/80">
               Typeface: Inter / Halvetica
             </p>
-            <p className="google-sans text-xs md:text-sm font-medium uppercase tracking-wide text-white/60">
+            <p className="google-sans text-sm md:text-base font-semibold uppercase tracking-wide text-white/80">
               Deployed On: Vercel
             </p>
           </div>
 
           <div className="mt-8 md:mt-0">
-            <p className="bricolage-grotesque text-xs md:text-sm font-bold uppercase tracking-widest text-white">
+            <p className="bricolage-grotesque text-base md:text-lg font-extrabold uppercase tracking-widest text-white">
               2026
             </p>
           </div>
