@@ -18,7 +18,7 @@ const skillCategories = [
       { name: "Vercel", url: "https://cdn.simpleicons.org/vercel/ffffff" },
       { name: "Netlify", url: "https://cdn.simpleicons.org/netlify/00C7B7" },
       { name: "Vanilla JS", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782109516/pixora-uploads/pixora-bg-1782109516318-3jp46u.png" },
-  ]
+    ]
   },
   {
     link: "#",
@@ -49,11 +49,6 @@ const skillCategories = [
       { name: "Gemini", url: "https://cdn.simpleicons.org/googlegemini/8E75B2" },
       { name: "Manus", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782111096/pixora-uploads/pixora-bg-1782111096872-y810y2.png" },
       { name: "Github Co-Pilot", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782110081/pixora-uploads/pixora-bg-1782110081328-wwo2r2.png" },
-      { name: "Notion", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782110989/pixora-uploads/pixora-bg-1782110989470-jm088r.png" },
-      { name: "Trae", url: "https://images.saasworthy.com/trae_51840_logo_1753948921_8ohgm.png" },
-      { name: "Qwen", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782110140/pixora-uploads/pixora-bg-1782110140415-pzkdgf.png" },
-      { name: "Windsurf", url: "https://cdn.simpleicons.org/windsurf/2D9EFF" },
-      { name: "Qoder", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782110185/pixora-uploads/pixora-bg-1782110185354-l632jn.png" },
       { name: "Codex", url: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/codex-color.png" },
     ]
   }
