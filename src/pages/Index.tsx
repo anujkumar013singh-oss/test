@@ -39,10 +39,10 @@ const CursorFollower = () => {
 
 const BrandLogo = () => (
   <div className="fixed top-6 left-6 md:top-8 md:left-10 z-50 mix-blend-difference">
-    <h1 className="bricolage-grotesque font-black text-2xl md:text-4xl tracking-tighter text-white flex items-start">
+    <div className="bricolage-grotesque font-black text-2xl md:text-4xl tracking-tighter text-white flex items-start">
       ANUJ SINGH
       <span className="text-xs md:text-lg font-medium ml-1 -mt-1 md:-mt-2">®</span>
-    </h1>
+    </div>
   </div>
 );
 
@@ -217,9 +217,9 @@ const Index = () => {
                 <path d="M1 6h10M6 1l5 5-5 5" />
               </svg>
             </a>
-            <h1 className="bricolage-grotesque font-bold text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] leading-[0.85] tracking-tighter text-white uppercase text-left">
+            <h2 className="bricolage-grotesque font-bold text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] leading-[0.85] tracking-tighter text-white uppercase text-left">
               Driven<br />by logic
-            </h1>
+            </h2>
           </motion.div>
         </div>
 
@@ -231,9 +231,9 @@ const Index = () => {
             className="col-span-1 md:col-span-7 lg:col-span-6"
           >
             <div className="w-12 h-[2px] bg-white mb-6 md:hidden" />
-            <p className="google-sans text-sm md:text-base lg:text-lg font-semibold text-white leading-relaxed tracking-wide uppercase text-left">
-              Anuj Singh — Full-Stack Developer working across frontend, backend, databases, and Git to build scalable web applications.
-            </p>
+            <h1 className="google-sans text-sm md:text-base lg:text-lg font-semibold text-white leading-relaxed tracking-wide uppercase text-left">
+              Anuj Singh — Full Stack Developer working across frontend, backend, databases, and Git to build scalable web applications.
+            </h1>
           </motion.div>
         </div>
       </section>
