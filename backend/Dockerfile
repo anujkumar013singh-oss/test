@@ -18,4 +18,7 @@ EXPOSE 3500
 ENV NODE_ENV=production
 ENV PORT=3500
 
+# Healthcheck to backend root/status
+HEALTHCHECK --interval=30s --timeout=5s CMD wget -q -O /dev/null http://localhost:3500/api/health || exit 1
+
 CMD ["node", "server.js"]

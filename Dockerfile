@@ -12,6 +12,10 @@ RUN npm install
 # Copy source code and config
 COPY . .
 
+# Support optional build-time environment variables for Vite
+ARG VITE_BACKEND_URL=""
+ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
+
 # Build production bundle
 RUN npm run build
 
@@ -26,5 +30,8 @@ COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose HTTP port
 EXPOSE 80
+
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=3s CMD wget -q -O /dev/null http://localhost/ || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]

@@ -7,3 +7,7 @@ dist
 *.log
 backend/node_modules
 backend/.env
+.env.local
+.env*.local
+confdential
+confdential/
