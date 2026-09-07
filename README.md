@@ -58,7 +58,7 @@
 
 ### Backend & Cloud Infrastructure
 - **Server**: Node.js (ESM), Express.js
-- **Database**: MongoDB Atlas (via Mongoose with cached connection pooling) & PostgreSQL (Neon Cloud)
+- **Database**: MongoDB Atlas (via Mongoose with cached connection pooling), PostgreSQL (Neon Cloud) & MySQL
 - **Email Service**: Brevo (Sendinblue) Transactional SMTP REST API
 - **Containerization**: Docker, Docker Compose, Nginx Alpine
 

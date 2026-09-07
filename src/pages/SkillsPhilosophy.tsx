@@ -30,6 +30,8 @@ const skillCategories = [
       { name: "Github", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782111671/pixora-uploads/pixora-bg-1782111671587-j2876u.png" },
       { name: "Prisma", url: "https://cdn.simpleicons.org/prisma/ffffff" },
       { name: "MongoDB", url: "https://cdn.simpleicons.org/mongodb/47A248" },
+      { name: "MySQL", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1788794646/pixora-uploads/pixora-bg-1788794646304-zv14c6.png" },
+      { name: "Docker", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1788794617/pixora-uploads/pixora-bg-1788794617213-nar11y.png" },
       { name: "Railway", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782111943/pixora-uploads/pixora-bg-1782111943041-xh6ali.png" },
       { name: "Git", url: "https://cdn.simpleicons.org/git/F05032" },
       { name: "postgre sql", url: "https://res.cloudinary.com/dhudpc4eu/image/upload/v1782109876/pixora-uploads/pixora-bg-1782109875978-ntckil.png" },
