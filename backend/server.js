@@ -25,6 +25,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:8080",
   "http://localhost:8082",
+  "https://anujsingh-fullstackdev.vercel.app",
   "https://test-yu3u.onrender.com",
   "https://solodeveloper.in",
   "https://www.solodeveloper.in",

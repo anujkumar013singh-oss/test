@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://anujsingh-developer.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-Vercel-black?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
+  <a href="https://anujsingh-fullstackdev.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-Vercel-black?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
   <a href="https://github.com/anujkumar013singh-oss"><img src="https://img.shields.io/badge/GitHub-anujkumar013singh--oss-181717?style=for-the-badge&logo=github" alt="GitHub" /></a>
   <a href="mailto:alonesurvivor03@gmail.com"><img src="https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 </p>
@@ -74,7 +74,7 @@ The site is fully optimized for search visibility with target brand keywords inc
   - Validated XML Sitemap at [`/public/sitemap.xml`](/public/sitemap.xml)
   - Crawler permissions and sitemap reference configured in [`/public/robots.txt`](/public/robots.txt)
   - Google Search Console verification meta tag embedded in `<head>`.
-  - Canonical URL declaration pointing to `https://anujsingh-developer.vercel.app/`.
+  - Canonical URL declaration pointing to `https://anujsingh-fullstackdev.vercel.app/`.
 
 ---
 
