@@ -1,4 +1,4 @@
-# Anuj Singh Devstudio — Full Stack Developer Portfolio
+# Anuj Singh — Full Stack Developer Portfolio
 
 <p align="center">
   <img src="https://res.cloudinary.com/dhudpc4eu/image/upload/v1787555385/pixora-uploads/pixora-1787555385447-mlh7la.jpg" alt="Anuj Singh Portfolio Banner" width="100%" style="border-radius: 12px; max-height: 400px; object-fit: cover;" />
@@ -18,7 +18,7 @@
 
 ## 🌟 Overview
 
-**Anuj Singh Devstudio** is a modern editorial and brutalist developer portfolio engineered for immersive user experience (UX) and fluid performance. It merges scroll-driven micro-animations, tactile physics, WebGL canvas effects, and rock-solid full-stack backend integrations.
+**Anuj Singh — Full Stack Developer Portfolio** is a modern editorial and brutalist developer portfolio engineered for immersive user experience (UX) and fluid performance. It merges scroll-driven micro-animations, tactile physics, WebGL canvas effects, and rock-solid full-stack backend integrations.
 
 ---
 
@@ -66,9 +66,9 @@
 
 ## 🔍 SEO & Search Optimization
 
-The site is fully optimized for search visibility with target brand keywords including **`Anuj Singh Devstudio`**, **`Anuj Singh portfolio`**, **`Anuj Singh developer`**, and **`Anuj Singh full stack developer`**:
+The site is fully optimized for search visibility with target brand keywords including **`Anuj Singh full stack developer`**, **`Anuj Singh portfolio`**, **`Anuj Singh developer`**, and **`Anuj Singh MERN developer`**:
 
-- **Structured Data (JSON-LD)**: Embedded `Person` schema with `alternateName: "Anuj Singh Devstudio"`, job title, and verified social handles (`sameAs`).
+- **Structured Data (JSON-LD)**: Embedded `Person` schema with `alternateName: "Anuj Singh - Full Stack Developer"`, job title, and verified social handles (`sameAs`).
 - **Open Graph & Twitter Cards**: High-resolution social preview tags configured for seamless link previews on Twitter/X, LinkedIn, Discord, and Slack.
 - **Indexing & Crawling**:
   - Validated XML Sitemap at [`/public/sitemap.xml`](/public/sitemap.xml)
