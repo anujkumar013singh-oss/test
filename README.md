@@ -11,6 +11,7 @@
 <p align="center">
   <a href="https://anujsingh-fullstackdev.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-Vercel-black?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
   <a href="https://github.com/anujkumar013singh-oss"><img src="https://img.shields.io/badge/GitHub-anujkumar013singh--oss-181717?style=for-the-badge&logo=github" alt="GitHub" /></a>
+  <a href="https://www.linkedin.com/in/anuj-singh-developer"><img src="https://img.shields.io/badge/LinkedIn-anuj--singh--developer-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn" /></a>
   <a href="mailto:alonesurvivor03@gmail.com"><img src="https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 </p>
 
@@ -87,10 +88,13 @@ Portfolio/
 ├── Dockerfile                  # Multi-stage Docker build (Node build -> Nginx Alpine)
 ├── docker-compose.yml          # Fullstack orchestration (Frontend + Backend)
 ├── nginx.conf                  # Nginx reverse proxy, gzip, caching & SPA routing
+├── vercel.json                 # Vercel SPA routing and serverless rewrites
 ├── index.html                  # Main HTML entry with SEO, JSON-LD schema & Google fonts
 ├── package.json                # Frontend dependencies & build scripts
 ├── tailwind.config.ts          # Tailwind configuration & design tokens
 ├── vite.config.ts              # Vite configuration & dev proxy
+├── api/
+│   └── contact.js              # Native Vercel Serverless Function (MongoDB + Brevo)
 ├── public/
 │   ├── robots.txt              # Search engine crawler instructions
 │   └── sitemap.xml             # XML sitemap with route priorities
@@ -206,17 +210,32 @@ docker compose down
 
 ## 🚀 Production Deployment
 
-### Frontend (Vercel)
-1. Import repository on [Vercel](https://vercel.com).
-2. Set Build Command: `npm run build`
-3. Set Output Directory: `dist`
-4. Add Environment Variable: `VITE_BACKEND_URL=https://your-backend-url.onrender.com`
+### Option A: All-in-One Vercel Deployment (Recommended)
+1. Import repository on [Vercel](https://vercel.com/new).
+2. Framework Preset: `Vite`
+3. Root Directory: `./` (leave default)
+4. Build Command: `npm run build`
+5. Output Directory: `dist`
+6. In **Project Settings ➔ Environment Variables**, add:
+   - `MONGO_URI`: `mongodb+srv://<username>:<password>@cluster0.qwgai2u.mongodb.net/portfolio?retryWrites=true&w=majority`
+   - `BREVO_API_KEY`: `xkeysib-your-brevo-api-key`
+   - `MY_EMAIL`: `alonesurvivor03@gmail.com`
+7. *(No external backend service needed: `/api/contact` executes natively via Vercel Serverless Functions)*.
 
-### Backend (Render / VPS)
+### Option B: Docker Container Deployment (Self-Hosted / VPS)
+Run the isolated, multi-stage production build:
+```bash
+docker compose up --build -d
+```
+- Includes automatic healthchecks (`/health` and `/api/health`).
+- Nginx automated reverse proxy with gzip compression and cache headers.
+
+### Option C: External Backend (Render / VPS)
 1. Deploy `backend/` folder on [Render](https://render.com) or cloud VPS as a Web Service.
 2. Build Command: `npm install`
 3. Start Command: `npm start`
 4. Set Environment Variables: `MONGO_URI`, `BREVO_API_KEY`, `MY_EMAIL`, `NODE_ENV=production`.
+5. Set `VITE_BACKEND_URL=https://your-backend-url.onrender.com` in frontend `.env.local`.
 
 ---
 

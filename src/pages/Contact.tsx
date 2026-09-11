@@ -91,17 +91,17 @@ const Contact = () => {
         {/* Left Column */}
         <div className="lg:col-span-7 flex flex-col justify-between h-full py-2">
           <motion.div variants={itemVariants} className="mb-8 lg:mb-0">
-            <h1 className="bricolage-grotesque text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tight text-left">
+            <h1 className="bricolage-grotesque text-4xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.95] tracking-tight text-left">
               Contact <br />
               Me <span className="inline-block ml-2">→</span>
             </h1>
           </motion.div>
 
           <motion.div variants={itemVariants} className="mt-8 lg:mt-0 hidden lg:block">
-            <h2 className="bricolage-grotesque text-sm md:text-base font-extrabold uppercase tracking-widest mb-3 text-black">
+            <h2 className="bricolage-grotesque text-base md:text-lg font-black uppercase tracking-widest mb-3 text-black">
               Contact Form
             </h2>
-            <p className="google-sans text-lg md:text-xl font-medium leading-relaxed text-black/90 max-w-md text-left">
+            <p className="google-sans text-xl md:text-2xl font-semibold leading-relaxed text-black max-w-md text-left">
               Send me a message and I'll get back to you as soon as possible. Let's build something great together.
             </p>
           </motion.div>
@@ -114,20 +114,20 @@ const Contact = () => {
             {/* Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="firstName" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">First Name*</label>
+                <label htmlFor="firstName" className="bricolage-grotesque text-sm md:text-base font-black uppercase tracking-wider text-black">First Name*</label>
                 <input
                   type="text" id="firstName" name="firstName"
                   value={formData.firstName} onChange={handleChange}
-                  className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors"
+                  className="w-full bg-transparent border-b-2 border-black/50 py-1.5 text-2xl font-bold text-black focus:border-black focus:outline-none transition-colors"
                   required
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="lastName" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">Last Name*</label>
+                <label htmlFor="lastName" className="bricolage-grotesque text-sm md:text-base font-black uppercase tracking-wider text-black">Last Name*</label>
                 <input
                   type="text" id="lastName" name="lastName"
                   value={formData.lastName} onChange={handleChange}
-                  className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors"
+                  className="w-full bg-transparent border-b-2 border-black/50 py-1.5 text-2xl font-bold text-black focus:border-black focus:outline-none transition-colors"
                   required
                 />
               </div>
@@ -136,20 +136,20 @@ const Contact = () => {
             {/* Email & Subject */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="email" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">Email*</label>
+                <label htmlFor="email" className="bricolage-grotesque text-sm md:text-base font-black uppercase tracking-wider text-black">Email*</label>
                 <input
                   type="email" id="email" name="email"
                   value={formData.email} onChange={handleChange}
-                  className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors"
+                  className="w-full bg-transparent border-b-2 border-black/50 py-1.5 text-2xl font-bold text-black focus:border-black focus:outline-none transition-colors"
                   required
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="subject" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">Subject*</label>
+                <label htmlFor="subject" className="bricolage-grotesque text-sm md:text-base font-black uppercase tracking-wider text-black">Subject*</label>
                 <input
                   type="text" id="subject" name="subject"
                   value={formData.subject} onChange={handleChange}
-                  className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors"
+                  className="w-full bg-transparent border-b-2 border-black/50 py-1.5 text-2xl font-bold text-black focus:border-black focus:outline-none transition-colors"
                   required
                 />
               </div>
@@ -157,11 +157,11 @@ const Contact = () => {
 
             {/* Message */}
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="message" className="bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-wider text-black">Message*</label>
+              <label htmlFor="message" className="bricolage-grotesque text-sm md:text-base font-black uppercase tracking-wider text-black">Message*</label>
               <textarea
                 id="message" name="message" rows={3}
                 value={formData.message} onChange={handleChange}
-                className="w-full bg-transparent border-b border-black/40 py-1.5 text-xl font-semibold text-black focus:border-black focus:outline-none transition-colors resize-none"
+                className="w-full bg-transparent border-b-2 border-black/50 py-1.5 text-2xl font-bold text-black focus:border-black focus:outline-none transition-colors resize-none"
                 required
               />
             </div>
@@ -171,7 +171,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="group flex items-center gap-3 text-xl font-black uppercase tracking-wider text-black hover:text-black/70 transition-colors disabled:opacity-50"
+                className="group flex items-center gap-3 text-2xl font-black uppercase tracking-wider text-black hover:text-black/70 transition-colors disabled:opacity-50"
               >
                 <span className="bricolage-grotesque">{status === "sending" ? "Sending…" : "Send Message"}</span>
                 <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>

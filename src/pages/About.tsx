@@ -45,7 +45,7 @@ const About = () => {
           className="md:col-span-3 lg:col-span-3 pt-2"
           style={{ y: y1, opacity: opacity1 }}
         >
-          <h2 className="bricolage-grotesque text-sm md:text-base font-extrabold uppercase tracking-widest text-black">
+          <h2 className="bricolage-grotesque text-xs md:text-sm font-bold uppercase tracking-widest text-black">
             Background & Data
           </h2>
         </motion.div>

@@ -7,7 +7,7 @@ const MagicBento = () => {
 
         {/* Section Header */}
         <div className="mb-24">
-          <h2 className="bricolage-grotesque text-sm md:text-base font-extrabold uppercase tracking-[0.2em] text-white">
+          <h2 className="bricolage-grotesque text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-white">
             More About Me
           </h2>
         </div>
@@ -89,18 +89,18 @@ const SwissItem = ({ value, suffix, label, description }) => {
     <div ref={ref} className="flex flex-col items-start">
 
       {/* Label */}
-      <span className="mb-4 bricolage-grotesque text-xs md:text-sm font-extrabold uppercase tracking-[0.25em] text-white">
+      <span className="mb-3 bricolage-grotesque text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-white/80">
         {label}
       </span>
 
       {/* Number */}
-      <h3 className="mb-6 bricolage-grotesque text-8xl md:text-9xl font-bold tracking-tight leading-none">
+      <h3 className="mb-4 bricolage-grotesque text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none">
         {count.toLocaleString()}
         {suffix}
       </h3>
 
       {/* Description */}
-      <p className="max-w-md google-sans text-lg md:text-xl font-medium leading-relaxed text-white/85">
+      <p className="max-w-md google-sans text-base md:text-lg font-normal leading-relaxed text-white/75">
         {description}
       </p>
     </div>
